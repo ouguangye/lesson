@@ -33,7 +33,7 @@
       "not dead",
       "not op_mini all"
     ],
-    "proxy": "http://lms.scutnc.cn/",
+    "proxy": "http://lms.scutnc.cn",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
