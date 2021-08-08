@@ -7,7 +7,7 @@ const InputInf = props => {
                 <input name={props.name} 
                     placeholder={props.placeholder} 
                     type={props.type}
-                    onChange={()=>{}}
+                    onChange={e=>{props.setAccount(e.target.value)}}
                     />
                 <i aria-hidden="true" className={props.icon}/>
             </div>
