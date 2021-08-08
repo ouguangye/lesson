@@ -55,7 +55,7 @@ const Form = props => {
 }
 
 const mapStateToProps = state => {
-    return {isSignIn:state.isSignIn}
+    return {isSignIn:state.auth.isSignIn}
 }
 
 export default connect(mapStateToProps,{signIn})(Form);
