@@ -5,8 +5,10 @@ import Form from './Form';
 import { signIn } from '../actions';
 
 class Login extends React.Component {
-    render(){
+    componentDidMount(){
         this.props.signIn("000","111");
+    }
+    render(){
         return(
             <div className="loginDiv">
                 <div className="ui center aligned middle aligned grid" 
