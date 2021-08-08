@@ -6,7 +6,9 @@ const InputInf = props => {
             <div className="ui fluid left icon input">
                 <input name={props.name} 
                     placeholder={props.placeholder} 
-                    type={props.type}/>
+                    type={props.type}
+                    onChange={()=>{}}
+                    />
                 <i aria-hidden="true" className={props.icon}/>
             </div>
         </div>
