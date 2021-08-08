@@ -16,18 +16,15 @@ const App=()=>{
                             Sunflower LMS
                         </h2>
                         <form className="ui large form">
-                            <div className="field">
-                                <div className="ui fluid left icon input">
-                                    <input name="account" placeholder="输入学号/手机号" type="text"/>
-                                    <i aria-hidden="true" className="user icon"/>
-                                </div>
-                            </div>
-                            <div className="field">
-                                <div className="ui fluid left icon input">
-                                    <input name="password" placeholder="输入密码" type="password"/>
-                                    <i aria-hidden="true" className="lock icon"/>
-                                </div>
-                            </div>
+                            <InputInf name="account" 
+                                placeholder="输入学号/手机号" 
+                                type="text" 
+                                icon="user icon"/>
+                            <InputInf 
+                                name="password" 
+                                placeholder="输入密码" 
+                                type="password" 
+                                icon="lock icon"/>
                             <div className="field">
                                 <button type="submit" className="ui orange large fluid button">登录</button>
                             </div>

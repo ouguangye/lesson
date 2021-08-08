@@ -1,11 +1,13 @@
 import React from 'react';
 
-const InputInf = () => {
+const InputInf = props => {
     return(
         <div className="field">
             <div className="ui fluid left icon input">
-                <input name="account" placeholder="输入学号/手机号" type="text"/>
-                <i aria-hidden="true" className="user icon"/>
+                <input name={props.name} 
+                    placeholder={props.placeholder} 
+                    type={props.type}/>
+                <i aria-hidden="true" className={props.icon}/>
             </div>
         </div>
     )
