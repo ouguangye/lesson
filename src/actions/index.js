@@ -11,5 +11,5 @@ export const signIn = (userName,password)=>async dispatch=>{
             }
         }
     )
-    dispatch({type:"SIGN_IN",payload:respond.result})
+    dispatch({type:"SIGN_IN",payload:respond.data.result})
 }

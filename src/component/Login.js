@@ -1,13 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import SunFlower from './sunflower';
 import Form from './Form';
-import { signIn } from '../actions';
+
 
 class Login extends React.Component {
-    componentDidMount(){
-        this.props.signIn("000","111");
-    }
     render(){
         return(
             <div className="loginDiv">
@@ -26,4 +22,4 @@ class Login extends React.Component {
     )
     }
 }
-export default connect(null,{signIn})(Login);
+export default Login;
