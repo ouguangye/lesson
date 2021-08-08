@@ -2,6 +2,7 @@
   "name": "lesson",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://lms.scutnc.cn",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -33,7 +34,6 @@
       "not dead",
       "not op_mini all"
     ],
-    "proxy": "http://lms.scutnc.cn/",
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
