@@ -8,7 +8,7 @@ const BreadCrumb = () =>{
                 <a href="#/" one-link-mark="yes">
                     <div className="ui header mainPageHeader">
                         <SunFlower/>
-                        <span style={{marginLeft:"8px",color:"blue"}}>
+                        <span style={{marginLeft:"8px"}}>
                             Sunflower LMS
                         </span>
                     </div>
