@@ -2,25 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import InputInf from './inputInf';
-import { signIn } from '../../actions';
+import { signIn,dataRequest } from '../../actions';
 
 const Form = props => {
     const [userName,setUserName] = useState(null);
     const [password,setPassword] = useState(null);
-    const [error,setError] = useState(null);
+    const [error,setError] = useState(false);
     
     const displayError=()=>{
-        if(!props.isSignIn){
-            return(
-                <div className="ui error visible message">
+        if(!error)return;
+        return(
+            <div className="ui error visible message">
                 <div className="content">
                     用户名/密码不匹配
                 </div>
             </div>
-            )
+        )
         }
-        return null;
-    }
 
     return(
         <form className="ui large form">
@@ -43,13 +41,14 @@ const Form = props => {
                     onClick={e=>{
                         e.preventDefault();
                         props.signIn(userName,password);
-                        setError(displayError());
+                        props.dataRequest();
+                        setError(!props.isSignIn);
                     }}
                     >
                         登录
                 </button>
             </div>
-            {error}
+            {displayError()}
         </form>
     )
 }
@@ -58,4 +57,4 @@ const mapStateToProps = state => {
     return {isSignIn:state.auth.isSignIn}
 }
 
-export default connect(mapStateToProps,{signIn})(Form);
+export default connect(mapStateToProps,{signIn,dataRequest})(Form);
