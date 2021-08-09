@@ -1,5 +1,5 @@
 import React from 'react';
-import SunFlower from './sunflower';
+import SunFlower from '../sunflower';
 import Form from './Form';
 
 
