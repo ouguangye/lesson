@@ -5,7 +5,7 @@ const BreadCrumb = () =>{
         <div className="item ui breadcrumb"
             style={{paddingLeft: "0px"}}>
             <div className="section">
-                <a href="#/" one-link-mark="yes">
+                <a href="#/">
                     <div className="ui header mainPageHeader">
                         <SunFlower/>
                         <span style={{marginLeft:"8px"}}>

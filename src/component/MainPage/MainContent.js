@@ -7,7 +7,7 @@ const MainContent = () => {
         <div className="lms-content">
             <div className="ui container">
                 <img src="http://lms.scutnc.cn/static/media/bg@2x.4fa27250.png"
-                    className="ui image backgroundImage" />
+                    className="ui image backgroundImage" alt=""/>
                 <UserPart/>
                 <br/><br/>
                 <Lessons/>

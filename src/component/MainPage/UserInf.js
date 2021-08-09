@@ -7,6 +7,7 @@ const UserInf = () => {
 
             <img src="http://lms.scutnc.cn/lms/ajax/images/teach.png"
                 className="ui circular image"
+                alt=""
                 />
 
             <div className="content" style={{color:'white'}}>

@@ -4,11 +4,10 @@ const Lessons = () => {
     return(
         <div className="ui five column grid" style={{marginTop:"1.5em"}}>
             <div className="column">
-                <a href="http://lms.scutnc.cn/#/learn/course/801/index"
-                    one-link-mark="yes" >
+                <a href="http://lms.scutnc.cn/#/learn/course/801/index" >
                     <div className="ui card course">
                         <img src="http://lms.scutnc.cn/lms/custom/icon/1591068988274.jpg"
-                            className="ui image" style={{height: "120px"}} />
+                            className="ui image" style={{height: "120px"}} alt="" />
                         <div className="content">
                             <p className="card_header">
                                 2021年秋季-本科生学习管理
