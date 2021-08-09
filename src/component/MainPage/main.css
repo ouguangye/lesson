@@ -1,0 +1,22 @@
+.menu{
+    background-color: transparent;
+    border: 0px;
+    box-shadow: none;
+    color: white; height: 56px;
+}
+
+
+.mainPageHeader{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-weight: 200;
+    color: white;
+}
+
+.item{
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 200;
+    color: white;
+}
