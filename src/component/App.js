@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route,Router } from 'react-router';
-import "./style.css";
 import Login from './LoginIn/Login';
-import Main from './main';
+import Main from './MainPage/main';
 import history from './history';
 
 

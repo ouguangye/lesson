@@ -6,7 +6,6 @@ const SunFlower = () =>{
         <React.Fragment>
             <img src={flowerIcon} className="ui avatar image" 
                 style={{width:"32px",verticalAlign:"sub"}} alt=""/>
-                            Sunflower LMS
         </React.Fragment>
     )
 }
