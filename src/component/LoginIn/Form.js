@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import InputInf from './inputInf';
-import { signIn } from '../actions';
+import { signIn } from '../../actions';
 
 const Form = props => {
     const [userName,setUserName] = useState(null);
