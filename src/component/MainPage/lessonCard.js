@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Lessons = props => {
+const LessonCard = props => {
     return(
         <div className="column">
             <a href="/#/learn/course/801/index" >
@@ -31,4 +31,4 @@ const Lessons = props => {
     )
 }
 
-export default Lessons;
+export default LessonCard;

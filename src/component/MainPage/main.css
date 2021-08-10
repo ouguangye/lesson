@@ -60,7 +60,7 @@
 
 
 
-.barMenu a{
+.barMenu span{
     color: black !important;
     font-family: "方正粗黑宋简体" !important;
 }
@@ -69,11 +69,11 @@
     color: rgb(145, 195, 238) !important;
 }
 
-.barMenu a:hover{
+.barMenu span:hover{
     color: black !important;
 }
 
-.barMenu div a{
+.barMenu div span{
     color: black !important;
     font-family: "方正粗黑宋简体" !important;
 }

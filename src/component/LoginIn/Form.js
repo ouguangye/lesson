@@ -7,27 +7,15 @@ import { signIn,dataRequest,lessonsFetch } from '../../actions';
 const Form = props => {
     const [userName,setUserName] = useState(null);
     const [password,setPassword] = useState(null);
-    const [error,setError] = useState(false);
     
-    const onButtonCLick= async(e)=>{
+    const onButtonCLick= (e)=>{
         e.preventDefault();
         props.signIn(userName,password);
         props.dataRequest();
-        await props.lessonsFetch();
-        setError(!props.isSignIn);
+        props.lessonsFetch();
     }
 
 
-    const displayError=()=>{
-        if(!error)return;
-        return(
-            <div className="ui error visible message">
-                <div className="content">
-                    用户名/密码不匹配
-                </div>
-            </div>
-        )
-        }
 
     return(
         <form className="ui large form">
@@ -52,13 +40,16 @@ const Form = props => {
                         登录
                 </button>
             </div>
-            {displayError()}
+           {props.error}
         </form>
     )
 }
 
 const mapStateToProps = state => {
-    return {isSignIn:state.auth.isSignIn}
+    return {
+        isSignIn:state.auth.isSignIn,
+        error : state.auth.error
+    }
 }
 
 export default connect(mapStateToProps,{signIn,dataRequest,lessonsFetch})(Form);

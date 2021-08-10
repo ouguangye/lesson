@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Lessons from './lessons';
+import LessonCard from './lessonCard';
 
-const renderLessons = (lessons) => {
-    if(!lessons) return <Lessons/>;
-    console.log(lessons);
+const renderLessonCard = (lessons) => {
+    if(!lessons) return <LessonCard/>;
     return lessons.map(
         lesson => {
             const photo = lesson.courseImagePath===""
@@ -16,7 +15,7 @@ const renderLessons = (lessons) => {
                             :`${lesson.courseCreator},${lesson.courseTeacherString}`
 
             return(
-                <Lessons
+                <LessonCard
                     key={lesson.courseId}
                     courseName={lesson.courseName}
                     courseImagePath={photo}
@@ -32,7 +31,7 @@ const renderLessons = (lessons) => {
 const StudentLesson = ({lessons}) =>{
      return(
          <div className="ui five column grid" style={{marginTop:"1.5em"}}>
-             {renderLessons(lessons)}
+             {renderLessonCard(lessons)}
          </div>
      )
 }

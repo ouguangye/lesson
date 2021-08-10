@@ -1,19 +1,20 @@
 import React from 'react';
 
 const Bar = () => {
+
     return(
         <div className="ui borderless menu barMenu" 
         style={{visibility: "visible"}}>
-            <a className="active item" href="/">
+            <span className="active item">
                 我学习的课程
-            </a>
-            <a className="item" href="/">
+            </span>
+            <span className="item">
                 公开课
-            </a>
+            </span>
             <div className="right menu">
-                <a className="active item" href="/">正在进行</a>
-                <a className="item" href="/">已结束</a>
-                <a className="item" href="/">全部</a>
+                <span className="active item" href="/">正在进行</span>
+                <span className="item" href="/">已结束</span>
+                <span className="item" href="/">全部</span>
             </div>
         </div>
     )
