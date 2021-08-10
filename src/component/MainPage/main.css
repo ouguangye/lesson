@@ -1,4 +1,4 @@
-.menu{
+.HeaderMenu{
     background-color:transparent !important;
     border: 0px !important;
     box-shadow: none !important;
@@ -56,4 +56,26 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.barMenu a{
+    color: black !important;
+    font-family: "方正粗黑宋简体" !important;
+}
+
+.barMenu .active{
+    color: rgb(145, 195, 238) !important;
+}
+
+.barMenu a:hover{
+    color: black !important;
+}
+
+.barMenu div a{
+    color: black !important;
+    font-family: "方正粗黑宋简体" !important;
+}
+
+.barMenu div .active{
+    color: rgb(145, 195, 238) !important;
 }
