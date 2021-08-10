@@ -3,7 +3,7 @@ export const lessonReducer = (state={},action) => {
         return {
             ...state,
             open:action.payload.data.open,
-            student:action.payload.data.student
+            student:action.payload.data.student,
         }
     }
     return state;

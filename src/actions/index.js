@@ -40,3 +40,10 @@ export const lessonsFetch = () => async dispatch =>{
     dispatch({type:"LESSONS_FETCH",payload:respond})
     if(respond.data.result==="success")history.push("/main");
 }
+
+export const changeChoice = (num) => {
+    return{
+        type:"CHANGE_CHOICE",
+        payload:num
+    }
+}

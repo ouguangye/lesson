@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import InputInf from './inputInf';
-import { signIn,dataRequest,lessonsFetch } from '../../actions';
+import { signIn,dataRequest,lessonsFetch,changeChoice } from '../../actions';
 
 const Form = props => {
     const [userName,setUserName] = useState(null);
@@ -13,6 +13,7 @@ const Form = props => {
         props.signIn(userName,password);
         props.dataRequest();
         props.lessonsFetch();
+        props.changeChoice(0);
     }
 
 
@@ -52,4 +53,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,{signIn,dataRequest,lessonsFetch})(Form);
+export default connect(
+    mapStateToProps,
+    {signIn,dataRequest,lessonsFetch,changeChoice}
+    ) (Form);

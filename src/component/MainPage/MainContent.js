@@ -10,7 +10,7 @@ const MainContent = () => {
                     className="ui image backgroundImage" alt=""/>
                 <UserPart/>
                 <br/><br/><br/>
-                <Lesson choice="0"/>
+                <Lesson/>
             </div>
         </div>
         )

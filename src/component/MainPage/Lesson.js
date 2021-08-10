@@ -30,9 +30,9 @@ const renderLessonCard = (lessons) => {
 
 const Lesson = props =>{
 
-    const lessons = props.choice==="0"
-                ?props.lessons.student
-                :props.lessons.open;
+    const lessons = props.choice
+                ?props.lessons.open
+                :props.lessons.student;
 
      return(
          <div className="ui five column grid" style={{marginTop:"1.5em"}}>
@@ -42,7 +42,10 @@ const Lesson = props =>{
 }
 
 const mapStateToProps = (state) => {
-    return {lessons:state.lesson}
+    return {
+        lessons:state.lesson,
+        choice:state.choice.choice
+    }
 }
 
 export default connect(mapStateToProps)(Lesson);
