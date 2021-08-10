@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import InputInf from './inputInf';
-import { signIn,dataRequest } from '../../actions';
+import { signIn,dataRequest,lessonsFetch } from '../../actions';
 
 const Form = props => {
     const [userName,setUserName] = useState(null);
@@ -42,6 +42,7 @@ const Form = props => {
                         e.preventDefault();
                         props.signIn(userName,password);
                         props.dataRequest();
+                        props.lessonsFetch();
                         setError(!props.isSignIn);
                     }}
                     >
@@ -57,4 +58,4 @@ const mapStateToProps = state => {
     return {isSignIn:state.auth.isSignIn}
 }
 
-export default connect(mapStateToProps,{signIn,dataRequest})(Form);
+export default connect(mapStateToProps,{signIn,dataRequest,lessonsFetch})(Form);
