@@ -66,7 +66,7 @@
 }
 
 .barMenu .active{
-    color: rgb(145, 195, 238) !important;
+    color: rgb(94, 104, 241) !important;
 }
 
 .barMenu span:hover{
@@ -79,5 +79,5 @@
 }
 
 .barMenu div .active{
-    color: rgb(145, 195, 238) !important;
+    color: rgb(94, 104, 241) !important;
 }

@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import {changeChoice} from "../../actions"
 
-const Bar = () => {
-    const[studentLesson,SetStudentLesson]=useState("active item");
+const Bar = props => {
+    const[studentLesson,setStudentLesson]=useState("active item");
     const[openLesson,setOpenLesson]=useState("item");
+
+    const onSpanClick = num => {
+        const status = studentLesson;
+        setStudentLesson(openLesson);
+        setOpenLesson(status);
+        props.changeChoice(num);
+    }
 
     return(
         <div className="ui borderless menu barMenu" 
         style={{visibility: "visible"}}>
-            <span className={studentLesson}>
+            <span className={studentLesson} onClick={()=>onSpanClick(0)} >
                 我学习的课程
             </span>
-            <span className={openLesson}>
+            <span className={openLesson} onClick={()=>onSpanClick(1)}>
                 公开课
             </span>
             <div className="right menu">
@@ -22,4 +31,4 @@ const Bar = () => {
     )
 }
 
-export default Bar;
+export default connect(null,{changeChoice})(Bar);
