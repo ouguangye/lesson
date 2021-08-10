@@ -11,13 +11,16 @@ const renderLessons = (lessons) => {
                     ?"/lms/ajax/images/classimg.png"
                     :`/lms/custom/icon/${lesson.courseImagePath}`;
 
+            const teacher = lesson.courseTeacherString === ""
+                            ?lesson.courseCreator
+                            :`${lesson.courseCreator},${lesson.courseTeacherString}`
+
             return(
                 <Lessons
                     key={lesson.courseId}
                     courseName={lesson.courseName}
-                    courseTeacherString={lesson.courseTeacherString}
-                    courseCreator={lesson.courseCreator}
                     courseImagePath={photo}
+                    teacher = {teacher}
                     startDate={lesson.startDate.substr(0,10)}
                     endDate={lesson.endDate.substr(0,10)}
                 />
@@ -28,7 +31,7 @@ const renderLessons = (lessons) => {
 
 const StudentLesson = ({lessons}) =>{
      return(
-         <div >
+         <div className="ui five column grid" style={{marginTop:"1.5em"}}>
              {renderLessons(lessons)}
          </div>
      )
