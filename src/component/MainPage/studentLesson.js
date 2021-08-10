@@ -18,8 +18,8 @@ const renderLessons = (lessons) => {
                     courseTeacherString={lesson.courseTeacherString}
                     courseCreator={lesson.courseCreator}
                     courseImagePath={photo}
-                    startDate={lesson.startDate}
-                    endDate={lesson.endDate}
+                    startDate={lesson.startDate.substr(0,10)}
+                    endDate={lesson.endDate.substr(0,10)}
                 />
             )
         }

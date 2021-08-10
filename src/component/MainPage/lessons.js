@@ -19,7 +19,9 @@ const Lessons = props => {
                                 </p>
                             </div>
                             <div className="extra content">
-                                <span>{`${props.startDate}~${props.endDate}`}</span>
+                                <span style={{color:"grey",opacity:"0.7"}}>
+                                    {`${props.startDate}~${props.endDate}`}
+                                </span>
                             </div>
                         </div>
                     </div>
