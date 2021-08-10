@@ -9,6 +9,14 @@ const Form = props => {
     const [password,setPassword] = useState(null);
     const [error,setError] = useState(false);
     
+    const onButtonCLick= async(e)=>{
+        e.preventDefault();
+        await props.signIn(userName,password);
+        props.dataRequest();
+        props.lessonsFetch();
+        setError(!props.isSignIn);
+    }
+
     const displayError=()=>{
         if(!error)return;
         return(
@@ -38,13 +46,7 @@ const Form = props => {
             <div className="field">
                 <button type="submit" 
                     className="ui orange large fluid button"
-                    onClick={e=>{
-                        e.preventDefault();
-                        props.signIn(userName,password);
-                        props.dataRequest();
-                        props.lessonsFetch();
-                        setError(!props.isSignIn);
-                    }}
+                    onClick={(e)=>{onButtonCLick(e)}}
                     >
                         登录
                 </button>
