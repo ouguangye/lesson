@@ -12,7 +12,7 @@ const Form = props => {
         e.preventDefault();
         props.signIn(userName,password);
         props.dataRequest();
-        props.lessonsFetch();
+        props.lessonsFetch(1);
         props.changeChoice(0);
     }
 

@@ -27,14 +27,14 @@ export const dataRequest = ()=>async dispatch =>{
     dispatch({type:"DATA_REQUEST",payload:respond.data})
 }
 
-export const lessonsFetch = () => async dispatch =>{
+export const lessonsFetch = (num) => async dispatch =>{
     const respond = await lms.post(
-        "/json/learning/listCourse?courseStatus=1",
+        "/json/learning/listCourse",
         {},
         {
-            params:{
-                listCourse:"courseStatus=1"
-            }
+           params:{
+                courseStatus:num
+           }
         }
     )
     dispatch({type:"LESSONS_FETCH",payload:respond})

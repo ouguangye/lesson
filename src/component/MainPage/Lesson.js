@@ -6,6 +6,7 @@ const renderLessonCard = (lessons) => {
     if(!lessons) return <LessonCard/>;
     return lessons.map(
         lesson => {
+            console.log(lesson.courseImagePath);
             const photo = lesson.courseImagePath===""
                     ?"/lms/ajax/images/classimg.png"
                     :`/lms/custom/icon/${lesson.courseImagePath}`;
