@@ -13,7 +13,6 @@ export const signIn = (userName,password)=>async dispatch=>{
         }
     )
     dispatch({type:"SIGN_IN",payload:respond.data.result})
-    if(respond.data.result==="success")history.push("/main");
 }
 
 export const dataRequest = ()=>async dispatch =>{
@@ -38,6 +37,6 @@ export const lessonsFetch = () => async dispatch =>{
             }
         }
     )
-
     dispatch({type:"LESSONS_FETCH",payload:respond})
+    if(respond.data.result==="success")history.push("/main");
 }

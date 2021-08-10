@@ -1,25 +1,25 @@
 import React from 'react';
 
-const Lessons = () => {
+const Lessons = props => {
     return(
         <div className="ui five column grid" style={{marginTop:"1.5em"}}>
             <div className="column">
-                <a href="http://lms.scutnc.cn/#/learn/course/801/index" >
+                <a href="/#/learn/course/801/index" >
                     <div className="ui card course">
-                        <img src="http://lms.scutnc.cn/lms/custom/icon/1591068988274.jpg"
+                        <img src={props.courseImagePath}
                             className="ui image" style={{height: "120px"}} alt="" />
                         <div className="content">
                             <p className="card_header">
-                                2021年秋季-本科生学习管理
+                                {props.courseName}
                             </p>
                             <div className="description">
                                 <p className="description sentences">
                                     <i arias-hidden="true" className="user icon"></i>
-                                    王清华，张开阳，张伟
+                                    {`${props.courseCreator},${props.courseTeacherString}`}
                                 </p>
                             </div>
                             <div className="extra content">
-                                <span>2021/7/01~2024/6/30</span>
+                                <span>{`${props.startDate}~${props.endDate}`}</span>
                             </div>
                         </div>
                     </div>

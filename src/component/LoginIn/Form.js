@@ -11,11 +11,12 @@ const Form = props => {
     
     const onButtonCLick= async(e)=>{
         e.preventDefault();
-        await props.signIn(userName,password);
+        props.signIn(userName,password);
         props.dataRequest();
-        props.lessonsFetch();
+        await props.lessonsFetch();
         setError(!props.isSignIn);
     }
+
 
     const displayError=()=>{
         if(!error)return;

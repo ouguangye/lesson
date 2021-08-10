@@ -1,6 +1,6 @@
 import React from 'react';
-import Lessons from './lessons';
 import UserPart from './UserPart';
+import StudentLesson from './studentLesson';
 
 const MainContent = () => {
     return (
@@ -10,7 +10,7 @@ const MainContent = () => {
                     className="ui image backgroundImage" alt=""/>
                 <UserPart/>
                 <br/><br/><br/>
-                <Lessons/>
+                <StudentLesson/>
             </div>
         </div>
         )
