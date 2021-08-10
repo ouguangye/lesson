@@ -28,7 +28,12 @@ const renderLessonCard = (lessons) => {
     )
 }
 
-const StudentLesson = ({lessons}) =>{
+const Lesson = props =>{
+
+    const lessons = props.choice==="0"
+                ?props.lessons.student
+                :props.lessons.open;
+
      return(
          <div className="ui five column grid" style={{marginTop:"1.5em"}}>
              {renderLessonCard(lessons)}
@@ -37,7 +42,7 @@ const StudentLesson = ({lessons}) =>{
 }
 
 const mapStateToProps = (state) => {
-    return {lessons:state.lesson.student}
+    return {lessons:state.lesson}
 }
 
-export default connect(mapStateToProps)(StudentLesson);
+export default connect(mapStateToProps)(Lesson);
