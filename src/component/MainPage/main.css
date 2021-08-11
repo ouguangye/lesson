@@ -81,3 +81,17 @@
 .barMenu div .active{
     color: rgb(94, 104, 241) !important;
 }
+
+.reveal{
+    width: 200px;
+    height: 112.5px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.photoContent{
+    height: 100%;
+    border: 1px dashed grey;
+    cursor: pointer;
+    text-align: center;
+}

@@ -26,7 +26,6 @@ const Menu = () => {
 
 const signOut = async () => {
     await lms.get("/htmlLogout");
-    
 }
 
 export default Menu;
