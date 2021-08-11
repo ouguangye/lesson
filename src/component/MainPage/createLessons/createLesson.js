@@ -1,9 +1,10 @@
 import React from 'react';
+import LessonModal from './LessonModal';
 
-const CreatePortal = () => {
+const CreateLesson = () => {
     return(
-        <div>CreatePortal</div>
+        <LessonModal/>
     )
 }
 
-export default CreatePortal;
+export default CreateLesson;

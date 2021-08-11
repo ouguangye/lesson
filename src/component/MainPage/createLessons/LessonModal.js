@@ -21,7 +21,8 @@ const LessonModal = () => {
                         </form>
                     </div>
                </div>
-        </div>
+        </div>,
+        document.querySelector("#modal")
     )
 }
 

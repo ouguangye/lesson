@@ -16,7 +16,7 @@ const Menu = () => {
             <div role="option" className="item" aria-selected="false">
                 <i aria-hidden="true" className="sign out icon"></i>
                 <a href="#/" style={{color:"black"}} 
-                    onClick={()=>{signOut();javascript:window.location.href="/"}}>
+                    onClick={()=>{signOut();window.location.href="/"}}>
                         登出系统
                 </a>
             </div>
