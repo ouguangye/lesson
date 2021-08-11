@@ -95,3 +95,7 @@
     cursor: pointer;
     text-align: center;
 }
+
+.text{
+    color: black !important
+}

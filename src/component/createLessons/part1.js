@@ -1,8 +1,14 @@
 import React from 'react';
 import PhotoContent from './photoContent';
-import MenuTransition from './menuTransition';
 import InfField from './InfField';
+import DropDown from './DropDown';
+
+
 const Part1 = () => {
+   
+
+
+    
     return(
         <div className="ui grid">
            <PhotoContent/>
@@ -17,17 +23,7 @@ const Part1 = () => {
                     </div>
                     <div className="field">
                         <label>公开课</label>
-                        <div name="isOpen" role="listbox" aria-expanded="false"
-                            className="ui selection dropdown" tabIndex="0" >
-                            <div aria-atomic="true" aria-live="polite"
-                                className="divider text" role="alert">
-                                否
-                            </div>
-                            <i aria-hidden="true" className="dropsown icon"></i>
-                            <div className="menu transition">
-                               <MenuTransition/>
-                            </div>
-                        </div>
+                        <DropDown name="isOpen"/>
                     </div>
                 </div>
                 <InfField/>

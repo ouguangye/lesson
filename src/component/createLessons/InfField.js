@@ -5,7 +5,7 @@ const InfField = () => {
                 <label>课程学时</label>
                 <div className="ui input">
                     <input name="classHour" placeholder="课时" 
-                        type="text" value>
+                        type="text" >
                     </input>
                 </div>
             </div>
@@ -13,7 +13,7 @@ const InfField = () => {
                 <label>课程学分</label>
                 <div className="ui input">
                     <input name="credit" placeholder="学分" 
-                        type="text" value/>
+                        type="text" />
                 </div>
             </div>
             <div className="field">

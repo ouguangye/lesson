@@ -8,7 +8,8 @@ const LessonModal = () => {
            style={{display:"flex !important"}} >
                <div className="ui large scrolling modal transition visible active">
                     <div className="header">
-                        <i aria-hidden="true" className="list icon">创建课程</i>
+                        <i aria-hidden="true" className="list icon"></i>
+                        创建课程
                     </div>
                     <div className="content">
                         <form className="ui form">

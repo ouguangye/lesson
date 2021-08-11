@@ -6,13 +6,13 @@ const PhotoContent = () => {
                 <div className="ui small fade reveal">
                     <div className="ui visible content"
                         style={{height:"100%",width:"100%"}} >
-                        <img src="/lms/ajax/images/classimg.png"
-                            className="ui image" 
+                        <img className="ui image" alt=''
+                            src="/lms/ajax/images/classimg.png"  
                             style={{height:"100%",width:"100%"}} />
                     </div>
                     <div className="ui content photoContent">
                         <i aria-hidden="true" className="add icon"
-                            style={{marginTop:"40px"}} ></i>
+                            style={{marginTop:"40px"}} alt=""></i>
                         <p>上传图片</p>
                     </div>
                     <input id="filename" type="file" accept="image/*"
