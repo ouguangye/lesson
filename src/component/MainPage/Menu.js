@@ -1,6 +1,6 @@
 import React from 'react';
 import lms from '../../api/lms';
-import history from '../history';
+
 
 const Menu = () => {
     return(
@@ -16,7 +16,7 @@ const Menu = () => {
             <div role="option" className="item" aria-selected="false">
                 <i aria-hidden="true" className="sign out icon"></i>
                 <a href="#/" style={{color:"black"}} 
-                    onClick={e=>{signOut(e)}}>
+                    onClick={()=>{signOut();javascript:window.location.href="/"}}>
                         登出系统
                 </a>
             </div>
@@ -24,8 +24,9 @@ const Menu = () => {
     )
 }
 
-const signOut = async (e) => {
+const signOut = async () => {
     await lms.get("/htmlLogout");
+    
 }
 
 export default Menu;
