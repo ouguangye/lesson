@@ -2,7 +2,7 @@ import React from 'react';
 import { Route,Router } from 'react-router';
 import Login from './LoginIn/Login';
 import Main from './MainPage/main';
-import CreateLesson from './MainPage/createLessons/createLesson';
+import CreateLesson from './createLessons/createLesson';
 import history from './history';
 
 
