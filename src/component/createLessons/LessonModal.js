@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Part1 from './part1';
+import Date from './Date';
+import Button from './Button';
 
 const LessonModal = () => {
     return ReactDOM.createPortal(
@@ -14,11 +16,9 @@ const LessonModal = () => {
                     <div className="content">
                         <form className="ui form">
                             <Part1/>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            <Date/>
+                            <div className="ui error message"></div>
+                            <Button/>
                         </form>
                     </div>
                </div>

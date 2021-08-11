@@ -6,9 +6,6 @@ import DropDown from './DropDown';
 
 const Part1 = () => {
    
-
-
-    
     return(
         <div className="ui grid">
            <PhotoContent/>

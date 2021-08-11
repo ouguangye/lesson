@@ -17,7 +17,15 @@ const InfField = () => {
                 </div>
             </div>
             <div className="field">
-                <label>必修课</label>
+                <label>课程类型</label>
+                <div name="type" role="listbox" aria-expanded="false"
+                    className="ui selection dropdown" tabIndex="0">
+                    <div aria-atomic="true" aria-live="polite" 
+                        role="alert" className="divider text">
+                            必修课
+                    </div>
+                    <i aria-hidden="true" className="dropdown icon" ></i>
+                </div>
             </div>
         </div>
     )
