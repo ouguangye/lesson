@@ -1,7 +1,7 @@
 import lms from "../api/lms"
 import history from "../component/history"
 
-export const signIn = (userName,password)=>async dispatch=>{
+export const signIn = (userName,password) => async dispatch => {
     const respond = await lms.post(
         "/htmlLogin",
         {},
@@ -14,6 +14,7 @@ export const signIn = (userName,password)=>async dispatch=>{
     )
     dispatch({type:"SIGN_IN",payload:respond.data.result})
 }
+
 
 export const dataRequest = ()=>async dispatch =>{
     const respond = await lms.post(

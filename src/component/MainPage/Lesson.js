@@ -6,7 +6,6 @@ const renderLessonCard = (lessons) => {
     if(!lessons) return <LessonCard/>;
     return lessons.map(
         lesson => {
-            console.log(lesson.courseImagePath);
             const photo = lesson.courseImagePath===""
                     ?"/lms/ajax/images/classimg.png"
                     :`/lms/custom/icon/${lesson.courseImagePath}`;
@@ -17,9 +16,10 @@ const renderLessonCard = (lessons) => {
 
             return(
                 <LessonCard
-                    key={lesson.courseId}
-                    courseName={lesson.courseName}
-                    courseImagePath={photo}
+                    key = {lesson.courseId}
+                    id = {lesson.courseId} 
+                    courseName = {lesson.courseName}
+                    courseImagePath = {photo}
                     teacher = {teacher}
                     startDate={lesson.startDate.substr(0,10)}
                     endDate={lesson.endDate.substr(0,10)}
