@@ -23,12 +23,14 @@ const DropDown = props => {
                                                 ?menuConfig["on"]
                                                 :menuConfig["off"];
     
+    const {openCollect,name} =props;
+
     useEffect(()=>{
-        props.openCollect(option);
-    },[menuVisible,option])
+        openCollect(option);
+    },[menuVisible,option,openCollect])
 
     return (
-        <div name={props.name} role="listbox" aria-expanded={ariaExpanded}
+        <div name={name} role="listbox" aria-expanded={ariaExpanded}
                 className={menuClass} tabIndex="0" >
             <div aria-atomic="true" aria-live="polite"
                 className="divider text" role="alert">

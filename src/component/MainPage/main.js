@@ -8,11 +8,14 @@ import { connect } from 'react-redux';
 import {dataRequest,lessonsFetch,changeChoice} from '../../actions'
 
 const Main = props =>{
+
+    const {dataRequest,lessonsFetch,changeChoice} = props;
+
     useEffect(()=>{
-        props.dataRequest();
-        props.lessonsFetch(1);
-        props.changeChoice(0);
-    },[])
+        dataRequest();
+        lessonsFetch(1);
+        changeChoice(0);
+    },[dataRequest,lessonsFetch,changeChoice])
 
     return(
         <div className="lms-app">

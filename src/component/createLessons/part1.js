@@ -6,9 +6,11 @@ import { connect } from 'react-redux';
 import {nameCollect} from "../../actions"
 
 const Part1 = props => {
+    const {nameCollect}=props;
+
     useEffect(()=>{
-        props.nameCollect("") 
-    },[])
+        nameCollect("") 
+    },[nameCollect])
     
     return(
         <div className="ui grid">
