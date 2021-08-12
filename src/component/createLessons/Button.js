@@ -12,7 +12,6 @@ const Button = props => {
     }
 
     const createRequest = async () => {
-        //name=&classHour=&credit=&startDate=2021-08-12&endDate=
         await lms.post (
             "/json/creator/saveCourse",
             {},
@@ -24,8 +23,9 @@ const Button = props => {
                     startDate:props.startDate,
                     endDate:props.endDate
                 }
-           }
+           },
         )
+        history.push("/main");
     }
 
     return(
