@@ -83,3 +83,17 @@ export const errorCollect = (error) => {
         payload:error
     }
 }
+
+export const startDateCollect = (date) => {
+    return {
+        type:"START_DATA_COLLECT",
+        payload:date
+    }
+} 
+
+export const endDateCollect = (date) => {
+    return {
+        type:"END_DATA_COLLECT",
+        payload:date
+    }
+} 

@@ -15,6 +15,12 @@ export const createReducer = (state={},action) => {
         case "ERROR_COLLECT":{
             return {...state,error:action.payload}
         }
+        case "START_DATA_COLLECT":{
+            return {...state,startDate:action.payload}
+        }
+        case "END_DATA_COLLECT":{
+            return {...state,endDate:action.payload}
+        }
         default:return state;
     }
 }
