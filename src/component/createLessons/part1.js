@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PhotoContent from './photoContent';
 import InfField from './InfField';
 import DropDown from './DropDown';
+import { connect } from 'react-redux';
+import {nameCollect} from "../../actions"
 
-
-const Part1 = () => {
-   
+const Part1 = props => {
+    useEffect(()=>{
+        props.nameCollect("") 
+    },[])
+    
     return(
         <div className="ui grid">
            <PhotoContent/>
@@ -15,7 +19,10 @@ const Part1 = () => {
                         <label>课程名称</label>
                         <div className="ui input">
                             <input name="name" placeholder="新建课程班名称"
-                                type="text"/>
+                                type="text"
+                                onChange={
+                                    e => {props.nameCollect(e.target.value)}
+                                }/>
                         </div>
                     </div>
                     <div className="field">
@@ -28,4 +35,6 @@ const Part1 = () => {
         </div>
     )
 }
-export default Part1;
+
+
+export default connect(null,{nameCollect})(Part1);

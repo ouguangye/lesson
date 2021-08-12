@@ -3,8 +3,17 @@ import "./main.css"
 import MainPageHeader from './MainPageHeader';
 import MainContent from './MainContent';
 import Fooster from './footer';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import {dataRequest,lessonsFetch,changeChoice} from '../../actions'
 
-const Main = () =>{
+const Main = props =>{
+    useEffect(()=>{
+        props.dataRequest();
+        props.lessonsFetch(1);
+        props.changeChoice(0);
+    },[])
+
     return(
         <div className="lms-app">
             <MainPageHeader/>
@@ -14,4 +23,4 @@ const Main = () =>{
     )
 } 
 
-export default Main;
+export default connect(null,{dataRequest,lessonsFetch,changeChoice})(Main);

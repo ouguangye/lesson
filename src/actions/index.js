@@ -13,6 +13,7 @@ export const signIn = (userName,password) => async dispatch => {
         }
     )
     dispatch({type:"SIGN_IN",payload:respond.data.result})
+    if(respond.data.result==="success")history.push("/main");
 }
 
 
@@ -39,7 +40,6 @@ export const lessonsFetch = (num) => async dispatch =>{
         }
     )
     dispatch({type:"LESSONS_FETCH",payload:respond})
-    if(respond.data.result==="success")history.push("/main");
 }
 
 export const changeChoice = (num) => {
@@ -48,3 +48,17 @@ export const changeChoice = (num) => {
         payload:num
     }
 }
+
+export const nameCollect = (name) => {
+    return{
+        type:"NAME_COLLECT",
+        payload:name
+    }
+}
+
+export const openCollect = (isOpen) => {
+    return {
+        type:"OPEN_COLLECT",
+        payload:isOpen==="否"?false:true
+    }
+} 

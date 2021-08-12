@@ -8,12 +8,9 @@ const Form = props => {
     const [userName,setUserName] = useState(null);
     const [password,setPassword] = useState(null);
     
-    const onButtonCLick= async (e)=>{
+    const onButtonCLick=  (e)=>{
         e.preventDefault();
-        await props.signIn(userName,password);
-        props.dataRequest();
-        props.lessonsFetch(1);
-        props.changeChoice(0);
+        props.signIn(userName,password);
     }
 
 

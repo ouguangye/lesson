@@ -1,3 +1,5 @@
+import React from "react";
+
 const InfField = () => {
     return(
         <div className="equal width fields">

@@ -1,8 +1,5 @@
 import history from "../history"
 
-onButtonClick = () => {
-    
-}
 
 const Button = () => {
     return(

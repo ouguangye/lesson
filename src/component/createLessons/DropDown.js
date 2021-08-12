@@ -1,6 +1,7 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import MenuTransition from "./menuTransition";
-
+import { connect } from 'react-redux';
+import {openCollect} from '../../actions'
 
 const DropDown = props => {
     const menuConfig = {
@@ -22,6 +23,10 @@ const DropDown = props => {
                                                 ?menuConfig["on"]
                                                 :menuConfig["off"];
     
+    useEffect(()=>{
+        props.openCollect(option);
+    },[menuVisible,option])
+
     return (
         <div name={props.name} role="listbox" aria-expanded={ariaExpanded}
                 className={menuClass} tabIndex="0" >
@@ -38,4 +43,4 @@ const DropDown = props => {
     )
 }
 
-export default DropDown; 
+export default connect(null,{openCollect})(DropDown); 
