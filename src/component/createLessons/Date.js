@@ -10,7 +10,7 @@ const Date = props => {
 
     useEffect(()=>{
         startDateCollect(moment().format('YYYY-MM-DD'));
-        endDateCollect();
+        endDateCollect("");
     },[startDateCollect,endDateCollect])
 
     return (

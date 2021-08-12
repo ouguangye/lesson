@@ -1,12 +1,31 @@
 import history from "../history";
 import { connect } from "react-redux";
 import {errorCollect} from "../../actions";
+import lms from "../../api/lms";
 
 const Button = props => {
 
     const onButtonClick = e => {
         e.preventDefault();
         if(props.name==="")props.errorCollect(true);
+        createRequest();
+    }
+
+    const createRequest = async () => {
+        //name=&classHour=&credit=&startDate=2021-08-12&endDate=
+        await lms.post (
+            "/json/creator/saveCourse",
+            {},
+           {
+                params:{
+                    name:props.name,
+                    classHour:props.hours,
+                    credit:props.credit,
+                    startDate:props.startDate,
+                    endDate:props.endDate
+                }
+           }
+        )
     }
 
     return(
@@ -29,7 +48,11 @@ const Button = props => {
 
 const mapStateToProps = state => {
     return{
-        name:state.create.name
+        name:state.create.name,
+        hours:state.create.hours,
+        credit:state.create.credit,
+        startDate:state.create.startDate,
+        endDate:state.create.endDate
     }
 }
 
