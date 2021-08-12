@@ -14,7 +14,7 @@ const Main = props =>{
     useEffect(()=>{
         dataRequest();
         lessonsFetch(1);
-        changeChoice(0);
+        changeChoice(1);
     },[dataRequest,lessonsFetch,changeChoice])
 
     return(

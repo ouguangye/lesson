@@ -31,9 +31,11 @@ const renderLessonCard = (lessons) => {
 
 const Lesson = props =>{
 
-    const lessons = props.choice
-                ?props.lessons.open
-                :props.lessons.student;
+    const lessons = props.choice === 2
+                ?props.lessons.student
+                :(props.choice===0 ?props.lessons.open:
+                    props.lessons.teacher
+                    );
 
      return(
          <div className="ui five column grid" style={{marginTop:"1.5em"}}>

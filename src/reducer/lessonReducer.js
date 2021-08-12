@@ -4,6 +4,7 @@ export const lessonReducer = (state={},action) => {
             ...state,
             open:action.payload.data.open,
             student:action.payload.data.student,
+            teacher:action.payload.data.teacher
         }
     }
     return state;
