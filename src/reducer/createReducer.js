@@ -6,6 +6,15 @@ export const createReducer = (state={},action) => {
         case "OPEN_COLLECT":{
             return {...state,isOpen:action.payload }
         }
+        case "HOUR_COLLECT":{
+            return {...state,hours:action.payload}
+        }
+        case "CREDIT_COLLECT":{
+            return {...state,credit:action.payload}
+        }
+        case "ERROR_COLLECT":{
+            return {...state,error:action.payload}
+        }
         default:return state;
     }
 }

@@ -62,3 +62,24 @@ export const openCollect = (isOpen) => {
         payload:isOpen==="否"?false:true
     }
 } 
+
+export const hourCollect = (hours) => {
+    return {
+        type:"HOUR_COLLECT",
+        payload:hours
+    }
+}
+
+export const creditCollect = (credit) => {
+    return{
+        type:"CREDIT_COLLECT",
+        payload:credit
+    }
+}
+
+export const errorCollect = (error) => {
+    return {
+        type:"ERROR_COLLECT",
+        payload:error
+    }
+}
