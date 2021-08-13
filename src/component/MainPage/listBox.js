@@ -19,7 +19,7 @@ const ListBox = props =>{
                 <img src={icon} className="ui avatar image" 
                     style={{marginRight: "8px"}} alt=""
                     onClick={()=>{setMenuVisible(!menuVisible)}}    />
-                <span>{props.userName}</span>
+                <span style={{color:"white"}}>{props.userName}</span>
             </div>
             <div className={menuTransition}>
                 <Menu setMenuVisible={setMenuVisible}/>

@@ -19,7 +19,6 @@
     font-size: 14px !important;
     cursor: pointer !important;
     font-weight: 200 !important;
-    color: white !important;
 }
 
 .lms-footer {
@@ -34,7 +33,6 @@
     position: fixed !important;
     top: -40px !important;
     right: 0px !important;
-    z-index: 1 !important;
     height: 240px !important;
     width: 100% !important;
 }
@@ -104,3 +102,4 @@
     margin-top:100px !important;
     margin-left: 80px !important;
 }
+
