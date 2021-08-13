@@ -97,3 +97,31 @@ export const endDateCollect = (date) => {
         payload:date
     }
 } 
+
+export const changeName = (name) => {
+    return{
+        type:"CHANGE_NAME",
+        payload:name
+    }
+}
+
+export const changeEmail = (email) => {
+    return {
+        type:"CHANGE_EMAIL",
+        payload:email
+    }
+}
+
+export const changePhone = (phone) => {
+    return {
+        type:"CHANGE_PHONE",
+        payload:phone
+    }
+}
+
+export const changeIntro = (content) => {
+    return {
+        type:"CHANGE_INTRO",
+        payload:content
+    }
+}

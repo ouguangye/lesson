@@ -1,4 +1,8 @@
-const InfPart1 = () => {
+import React from 'react';
+import { connect } from 'react-redux';
+import { changeName } from '../../actions';
+
+const InfPart1 = props => {
     return(
         <div className="fields">
             <div name="filename" className="field">
@@ -18,7 +22,8 @@ const InfPart1 = () => {
                     <label>姓名</label>
                     <div className="ui input">
                         <input placeholder="姓名" name="name" 
-                            type="text" value="欧光业"/>
+                            type="text" value={props.name}
+                           onChange={e=>{props.changeName(e.target.value)}} />
                     </div>
                 </div>
             </div>
@@ -26,4 +31,10 @@ const InfPart1 = () => {
     )
 }
 
-export default InfPart1;
+const mapStateToProps = state => {
+    return {
+        name:state.data.userName
+    }
+}
+
+export default connect(mapStateToProps,{changeName})(InfPart1);
