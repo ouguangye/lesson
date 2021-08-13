@@ -22,7 +22,7 @@ const ListBox = props =>{
                 <span>{props.userName}</span>
             </div>
             <div className={menuTransition}>
-                <Menu/>
+                <Menu setMenuVisible={setMenuVisible}/>
             </div>
         </div>
     )

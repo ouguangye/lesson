@@ -1,13 +1,20 @@
 import React from 'react';
 import lms from '../../api/lms';
+import history from '../history';
 
-
-const Menu = () => {
+const Menu = props => {
     return(
         <React.Fragment>
             <div role="option" className="item" aria-selected="false" >
                 <i aria-hidden="true" className="user icon"></i>
-                <a href="#/my" style={{color:"black"}}>个人信息</a>
+                <a href="#/" style={{color:"black"}} 
+                    onClick={(e)=>{
+                        e.preventDefault();
+                        history.push("/main/my");
+                        props.setMenuVisible(false);
+                        }}>
+                    个人信息
+                </a>
             </div>
             <div role="option" className="item" aria-selected="false">
                 <i aria-hidden="true" className="wrench icon"></i>
