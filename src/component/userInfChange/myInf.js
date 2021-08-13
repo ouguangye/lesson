@@ -1,19 +1,19 @@
 import React from 'react';
+import LeftPart from './leftPart';
+import InfPart1 from './InfPart1';
 
 const MyInf = () => {
     return (
         <React.Fragment>
             <br/><br/><br/><br/>
             <div className="ui grid">
-                <div className="four wide column">
-                    <div className="ui fluid vertical menu">
-                        <a className="active item" style={{color:"black"}}>个人信息</a>
-                    </div>
-                </div>
+                <LeftPart/>
                 <div className="twelve wide column">
                     <div className="ui segment">
                         <form className="ui form">
-
+                            <div className="fields">
+                                <InfPart1/>
+                            </div>
                         </form>
                     </div>
                 </div>
