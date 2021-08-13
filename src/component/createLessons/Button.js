@@ -8,7 +8,7 @@ const Button = props => {
     const onButtonClick = e => {
         e.preventDefault();
         if(props.name==="")props.errorCollect(true);
-        createRequest();
+        else createRequest();
     }
 
     const createRequest = async () => {
