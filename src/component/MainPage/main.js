@@ -1,5 +1,5 @@
 import React from 'react';
-import MainPageHeader from './MainPageHeader';
+import MainPageHeader from './topHeader/MainPageHeader';
 import MainContent from './MainContent';
 import Fooster from './footer';
 import { useEffect } from 'react';

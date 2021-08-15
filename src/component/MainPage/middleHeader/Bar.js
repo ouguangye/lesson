@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import {changeChoice,lessonsFetch} from "../../actions"
+import {changeChoice,lessonsFetch} from "../../../actions"
 
 const Bar = props => {
 

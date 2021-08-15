@@ -1,6 +1,6 @@
 import React from 'react';
-import lms from '../../api/lms';
-import history from '../history';
+import lms from '../../../api/lms';
+import history from '../../history';
 
 const itemStyle = {
     fontSize: "14px",

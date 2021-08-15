@@ -1,5 +1,5 @@
 import React from 'react';
-import MainPageHeader from '../MainPage/MainPageHeader';
+import MainPageHeader from '../MainPage/topHeader/MainPageHeader';
 import Fooster from '../MainPage/footer';
 
 const LessonDetail = () => {

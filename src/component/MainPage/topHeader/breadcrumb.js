@@ -1,4 +1,4 @@
-import SunFlower from '../sunflower';
+import SunFlower from '../../sunflower';
 
 const BreadCrumb = () =>{
     return(

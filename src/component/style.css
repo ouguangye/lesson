@@ -13,6 +13,8 @@
     align-items: center !important;
 }
 
+
+/* 人物头像的css */
 .circular{
     width: 80px !important;
     height: 80px !important;
@@ -20,17 +22,11 @@
     border: 4px solid white !important;
 }
 
-.sentences{
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
 
-
-
+/* Bar 上面item的css */
 .barMenu span{
-    color: black !important;
-    font-family: "方正粗黑宋简体" !important;
+    color: black;
+    font-family: "方正粗黑宋简体";
 }
 
 .barMenu .active{
@@ -38,12 +34,12 @@
 }
 
 .barMenu span:hover{
-    color: black !important;
+    color: black;
 }
 
 .barMenu div span{
-    color: black !important;
-    font-family: "方正粗黑宋简体" !important;
+    color: black;
+    font-family: "方正粗黑宋简体";
 }
 
 .barMenu div .active{

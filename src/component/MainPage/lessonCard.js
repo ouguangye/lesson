@@ -14,7 +14,11 @@ const LessonCard = props => {
                         </p>
                         <br></br>
                         <div className="description">
-                            <p className="description sentences">
+                            <p style={{
+                                textOverFlow: "ellipsis",
+                                overflow:"hidden",
+                                whiteSpace:"nowrap"
+                            }}>
                                 <i arias-hidden="true" className="user icon"></i>
                                {props.teacher}
                             </p>

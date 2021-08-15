@@ -1,5 +1,5 @@
 import React from 'react';
-import UserPart from './UserPart';
+import UserPart from './middleHeader/UserPart';
 import Lesson from './Lesson';
 
 const Content = () => {
