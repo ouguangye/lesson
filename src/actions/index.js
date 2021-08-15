@@ -25,7 +25,6 @@ export const dataRequest = ()=>async dispatch =>{
             params:{}
         }
     )
-    
     dispatch({type:"DATA_REQUEST",payload:respond.data})
 }
 

@@ -1,6 +1,7 @@
 export const dataReducer = (state={},action) =>{
     switch(action.type){
         case "DATA_REQUEST":{
+            if(!action.payload.name)window.location.href="/";
             return {
                 ...state,
                 userName:action.payload.name,

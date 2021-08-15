@@ -23,7 +23,7 @@ const Menu = props => {
             <div role="option" className="item" aria-selected="false">
                 <i aria-hidden="true" className="sign out icon"></i>
                 <a href="#/" style={{color:"black"}} 
-                    onClick={()=>{signOut();window.location.href="/"}}>
+                    onClick={()=>{signOut();}}>
                         登出系统
                 </a>
             </div>
@@ -33,6 +33,7 @@ const Menu = props => {
 
 const signOut = async () => {
     await lms.get("/htmlLogout");
+    window.location.href="/";
 }
 
 export default Menu;
