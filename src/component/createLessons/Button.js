@@ -25,7 +25,7 @@ const Button = props => {
                 }
            },
         )
-        history.push("/main");
+        history.push("/main/lesson");
     }
 
     return(
