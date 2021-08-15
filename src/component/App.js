@@ -5,6 +5,7 @@ import Main from './MainPage/main';
 import CreateLesson from './createLessons/createLesson';
 import history from './history';
 import LessonDetail from './LessonDetail/LessonDetail';
+import "./style.css";
 
 const App=()=>{
     return (

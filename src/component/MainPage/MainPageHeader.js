@@ -2,7 +2,6 @@ import React from 'react';
 import BreadCrumb from './breadcrumb';
 import ListBox from './listBox';
 
-
 const style ={
     backgroundColor:"transparent",
     border:"0px",
