@@ -6,15 +6,6 @@
      height: 56px  !important;
 }
 
-
-.mainPageHeader{
-    font-size: 14px !important;
-    display: flex !important;
-    align-items: center !important;
-    font-weight: 200 !important;
-    color: white !important;
-}
-
 .item{
     font-size: 14px !important;
     cursor: pointer !important;
