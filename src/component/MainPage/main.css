@@ -80,7 +80,7 @@
     color: rgb(94, 104, 241) !important;
 }
 
-.reveal{
+.lessonReveal{
     width: 200px;
     height: 112.5px;
     border-radius: 2px;
@@ -103,7 +103,7 @@
     margin-left: 80px !important;
 }
 
-.reveal{
+.userReveal{
     width: 160px;
     height: 160px;
     margin-right: 16px;

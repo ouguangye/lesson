@@ -7,7 +7,7 @@ const InfPart1 = props => {
         <div className="fields">
             <div name="filename" className="field">
                 <label>我的头像</label>
-                <div className="ui small fade reveal">
+                <div className="ui small fade reveal userReveal">
                     <div className="ui visible content"
                         style={{height:"100%",width:"100%"}}>
                         <img src="/lms/ajax/images/teach.png"
