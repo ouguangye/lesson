@@ -1,9 +1,10 @@
 import React from 'react';
+import history from '../history';
 
 const LessonCard = props => {
     return(
         <div className="column">
-            <a href={`http://lms.scutnc.cn/#/learn/course/${props.id}/index`} >
+            <span onClick={()=>{history.push(`/lesson/${props.id}`)}} >
                 <div className="ui special card" style={{height:"270px"}}>
                     <img src={props.courseImagePath}
                         className="ui image" style={{height: "120px"}} alt="" />
@@ -26,7 +27,7 @@ const LessonCard = props => {
                         </div>
                     </div>
                 </div>
-            </a>
+            </span>
         </div>
     )
 }
