@@ -10,7 +10,12 @@ const UserPart = () => {
             <div style={{height: "150px"}}></div>
             <div className="ui fixed top sticky"
                 style={{width:"1127px", top:"80px"}} >
-                    <div className="user head portrait">
+                    <div className="user head portrait"
+                          style={{
+                            display:"flex",
+                            justifyContent: "space-between",
+                            alignItems:"center"
+                          }}  >
                         <UserInf/>
                         <CreateLessonButton/>
                     </div>

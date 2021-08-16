@@ -4,7 +4,7 @@ import history from '../history';
 const LessonCard = props => {
     return(
         <div className="column">
-            <span onClick={()=>{history.push(`/lesson/${props.id}`)}} >
+            <span onClick={()=>{history.push(`/lesson/${props.id}`)}} style={{cursor:"pointer"}} >
                 <div className="ui special card" style={{height:"270px"}}>
                     <img src={props.courseImagePath}
                         className="ui image" style={{height: "120px"}} alt="" />

@@ -33,7 +33,7 @@ const DropDown = props => {
         <div name={name} role="listbox" aria-expanded={ariaExpanded}
                 className={menuClass} tabIndex="0" >
             <div aria-atomic="true" aria-live="polite"
-                className="divider text" role="alert">
+                className="divider text" role="alert" style={{color:"black"}}>
                 {option}
             </div>
             <i aria-hidden="true" className="dropdown icon"

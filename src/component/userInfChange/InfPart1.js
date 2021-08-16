@@ -2,12 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changeName } from '../../actions';
 
+const faceStyle = {
+    width: "160px",
+    height: "160px",
+    marginRight:"16px",
+    border:"4px solid orange",
+    borderRadius:"50%",
+    cursor: "pointer"
+}
+
 const InfPart1 = props => {
     return(
         <div className="fields">
             <div name="filename" className="field">
                 <label>我的头像</label>
-                <div className="ui small fade reveal userReveal">
+                <div className="ui small fade reveal" style={faceStyle}>
                     <div className="ui visible content"
                         style={{height:"100%",width:"100%"}}>
                         <img src="/lms/ajax/images/teach.png"

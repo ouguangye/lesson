@@ -9,7 +9,9 @@ const LessonModal = () => {
     return ReactDOM.createPortal(
         <div className="ui page modals dimmer transition visible active"
            style={{display:"flex !important"}} >
-               <div className="ui large scrolling modal transition visible active">
+               <div className="ui large scrolling modal transition visible active"
+                    style={{marginTop:"100px",marginLeft:"80px"}}
+               >
                     <div className="header">
                         <i aria-hidden="true" className="list icon"></i>
                         创建课程
