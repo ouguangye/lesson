@@ -77,7 +77,29 @@ const LessonContent = () => {
                     </div>
                 </div>
 
-                <div className="two wide column"></div>
+                <div className="two wide column">
+                    <div role="listbox" aria-expanded="false" 
+                     className="ui dropdown" tabIndex="0">
+                        <div aria-atomic="true" aria-live="polite" 
+                            role="alert" className="divider text">
+                                课程选项
+                        </div>
+                        <i aria-hidden="true" className="dropdown icon"></i>
+                        <div className="menu transition">
+                            <div role="option" className="item">
+                                <p>编辑课程</p>
+                            </div>
+                            <div role="option" className="item">
+                                <p>复制课程</p>
+                            </div>
+                            <div role="option" className="item">
+                                <p style={{textAlign:"center",color:"red"}}>
+                                    删除
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
