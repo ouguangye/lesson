@@ -15,8 +15,8 @@ const MainPageHeader = () =>{
         <div className="ui borderless top fixed menu" style={style}>
             <div className="ui container" 
                 style={{display: "flex", justifyContent: "space-between"}}>
-                    <BreadCrumb/>
-                    <ListBox/>
+                    <BreadCrumb color="white" headerName={()=>{return;}}/>
+                    <ListBox color="white"/>
             </div>
         </div>
     )

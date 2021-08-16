@@ -22,7 +22,7 @@ const ListBox = props =>{
 
     const {ariaExpanded,menuClass,menuTransition}=menuVisible
                                                 ?menuConfig["on"]
-                                                :menuConfig["off"]
+                                                :menuConfig["off"];
 
     return(
         <div role="listbox" aria-expanded={ariaExpanded} 
@@ -31,7 +31,7 @@ const ListBox = props =>{
                 <img src={icon} className="ui avatar image" 
                     style={{marginRight: "8px"}} alt=""
                     onClick={()=>{setMenuVisible(!menuVisible)}}    />
-                <span style={{color:"white"}}>{props.userName}</span>
+                <span style={{color:props.color}}>{props.userName}</span>
             </div>
             <div className={menuTransition}>
                 <Menu setMenuVisible={setMenuVisible}/>

@@ -1,6 +1,7 @@
 import SunFlower from '../../sunflower';
+import history from '../../history';
 
-const BreadCrumb = () =>{
+const BreadCrumb = props =>{
     return(
         <div className="item ui breadcrumb"
             style={{paddingLeft: "0px"}}>
@@ -12,12 +13,14 @@ const BreadCrumb = () =>{
                             display:"flex",
                             alignItems: "center",
                             fontWeight: "200",
-                            color:"white"
+                            color:props.color
                         }}>
                         <SunFlower/>
-                        <span style={{marginLeft:"8px"}}>
+                        <span style={{marginLeft:"8px"}} 
+                            onClick={()=>{history.push("/main")}} >
                             Sunflower LMS
                         </span>
+                        {props.headerName()}
                         <span></span>
                     </div>
                 </a>
