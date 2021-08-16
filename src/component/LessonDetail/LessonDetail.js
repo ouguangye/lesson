@@ -16,20 +16,26 @@ const style = {
 }
 
 const LessonDetail = props => {
+
     const id = props.match.params.id;
 
-    const headerName = () => {
-        return (
-            <span onClick={()=>{history.push(`/lesson/${id}`)}}>/测试作业二</span>
-        )
-    }
-    
     const { courseDetail,teachList } = props;
 
     useEffect(()=>{
         courseDetail(id);
         teachList(id);
     },[id,courseDetail,teachList])
+
+    const headerName = () => {
+        if(!props.data) return;
+        return (
+            <span onClick={()=>{history.push(`/lesson/${id}`)}}>
+                /{props.data.name}
+            </span>
+        )
+    }
+    
+   
 
     return(
         <div className="lms-app">
@@ -57,4 +63,10 @@ const LessonDetail = props => {
     )
 }
 
-export default connect(null,{courseDetail,teachList})(LessonDetail);
+const mapStateToProps = state => {
+    return {
+        data:state.detail.data
+    }
+}
+
+export default connect(mapStateToProps,{courseDetail,teachList})(LessonDetail);

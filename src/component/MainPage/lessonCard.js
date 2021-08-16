@@ -1,6 +1,7 @@
 import React from 'react';
 import history from '../history';
 
+
 const LessonCard = props => {
     return(
         <div className="column">

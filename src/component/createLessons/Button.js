@@ -8,7 +8,10 @@ const Button = props => {
     const onButtonClick = e => {
         e.preventDefault();
         if(props.name==="")props.errorCollect(true);
-        else createRequest();
+        else {
+            document.getElementById("createButton").disabled=true;
+            createRequest();
+        }
     }
 
     const createRequest = async () => {
@@ -30,7 +33,7 @@ const Button = props => {
 
     return(
         <div className="fields" style={{float:"right"}}>
-            <button type="submit" className="ui blue button"
+            <button type="submit" className="ui blue button" id="createButton"
                style={{marginRight: "8px"}}
                onClick={e => {onButtonClick(e)}} >
                    <i aria-hidden="true" className="check icon"></i>

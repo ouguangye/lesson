@@ -1,53 +1,22 @@
 import Comment from "./Comment";
 import ReplyForm from "./ReplyForm";
+import Session from './Session';
+import { connect } from "react-redux"
 
-const style = {
-    fontSize:"16px", 
-    lineHeight:"40px",
-    background:"white",
-    padding:"8px",
-    marginTop: "8px", 
-    boxShadow: "rgba(0, 0, 0, 0.08) 0px 2px 4px 0px",
-    borderRadius:"8px"
+const renderSession = (sessions) => {
+    return sessions.map(
+        session => {
+            console.log(session);
+            return <Session key={session.id} name={session.name} />
+        }
+    )
 }
 
-const Detail = () => {
+const Detail = props => {
     return(
         <div className="ui grid">
             <div className="twelve wide column">
-
-                <div className="accordion ui fluid styled" 
-                  style={{background:"transparent"}}>
-
-                    <div className="title ellipsis" style={style}>
-                        <i aria-hidden="true" className="dropdown icon"></i>
-                        第一章xxx
-                    </div>
-
-                    <div className="content" 
-                        style={{background:"white",borderRadius:"0px 0px 8px 8px"}}>
-                        <div style={{marginLeft: "16px"}}>
-
-                        <button className="ui orange basic button">
-                            <i aria-hidden="true" className="tv icon"></i>
-                            创建教学元素
-                        </button>
-
-                        <button className="ui orange basic button">
-                            <i aria-hidden="true" className="pencil icon"></i>
-                            创建作业
-                        </button>
-
-                        <button className="ui orange basic button">
-                            <i aria-hidden="true" className="lab icon"></i>
-                            团队实验
-                        </button>
-
-                        </div>
-                    </div>
-
-                </div>
-
+                {props.list?renderSession(props.list):null}
                 <div className="ui segment" 
                     style={{
                         background:"transparent",
@@ -75,4 +44,10 @@ const Detail = () => {
     )
 }
 
-export default Detail;
+const mapStateToProps = state => {
+    return {
+        list:state.detail.list
+    }
+}
+
+export default connect(mapStateToProps)(Detail);

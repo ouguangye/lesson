@@ -1,4 +1,7 @@
-const LessonContent = () => {
+import React from 'react';
+import { connect } from 'react-redux';
+
+const LessonContent = props => {
     return (
         <div className="ui segment">
             <div className="ui grid">
@@ -15,7 +18,7 @@ const LessonContent = () => {
                                     fontSize:"16px",
                                     color:"rgba(0, 0, 0, 0.85)",
                                     lineHeight:"22px"}}  >
-                            测试作业二
+                            {props.data?props.data.name:""}
                         </div>
                     </div>
 
@@ -26,7 +29,10 @@ const LessonContent = () => {
                                 fontWeight:"400",
                                 color:"rgba(0, 0, 0, 0.65)",
                                 lineHeight:"16px"}}>
-                                教师
+                                教师  
+                                <span style={{color:"black"}}>
+                                    {props.data?`  ${props.data.courseCreator} ${props.data.courseTeacherString}`:""}
+                                </span>
                             </span>
 
                             <span style={{
@@ -53,7 +59,7 @@ const LessonContent = () => {
                                 fontWeight:"400",
                                 color:"rgba(0, 0, 0, 0.65)",
                                 lineHeight:"16px"}}>
-                                Dec 29, 2020 ~ Dec 29, 2070
+                               {props.data?`${props.data.startDateString}~${props.data.endDateString}`:""}
                             </span>
                         </div>
                     </div>
@@ -72,7 +78,9 @@ const LessonContent = () => {
                             fontWeight:"400",
                             color:"rgba(0, 0, 0, 0.85)",
                             lineHeight:"17px"
-                        }}>1</span>
+                        }}>
+                             {props.data?`  ${props.data.introduction}`:""}
+                        </span>
 
                     </div>
                 </div>
@@ -105,4 +113,10 @@ const LessonContent = () => {
     )
 }
 
-export default LessonContent;
+const mapStateToProps = state => {
+    return{
+        data:state.detail.data
+    }
+}
+
+export default connect(mapStateToProps)(LessonContent);
