@@ -134,3 +134,8 @@ export const teachList = id => async dispatch => {
     const respond = await lms.get(`json/learning/listTeacherResource?courseId=${id}`);
     dispatch({type:"TEACH_lIST",payload:respond.data.section});
 }
+
+export const messageList = id => async dispatch => {
+    const respond = await lms.get(`/json/learning/listMessage?courseId=${id}`);
+    dispatch({type:"MESSAGE_LIST",payload:respond.data.message})
+}

@@ -1,15 +1,15 @@
-const Comment = () =>{
+const Comment = props =>{
     return(
         <div className="comment">
             <div className="avatar">
                 <img src="/lms/ajax/images/teach.png" alt=""></img>
             </div>
             <div className="content">
-                <span className="author">欧光业</span>
+                <span className="author">{props.name}</span>
                 <span className="metadata">
-                    <div>2021-08-16 16:48:30</div>
+                    <div>{props.data}</div>
                 </span>
-                <div className="text">请同学们尽快完成任务</div>
+                <div className="text">{props.content}</div>
                 <div className="actions">
                     <span>删除</span>
                 </div>

@@ -8,7 +8,7 @@ const style = {
     borderRadius:"8px"
 }
 
-const Session = props => {
+const Section = props => {
     return(
         <div className="accordion ui fluid styled" 
         style={{background:"transparent"}}>
@@ -44,4 +44,4 @@ const Session = props => {
     )
 }
 
-export default Session;
+export default Section;

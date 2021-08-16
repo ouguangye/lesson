@@ -7,7 +7,7 @@ import LessonBar from './LessonBar';
 import LessonContent from './LessonContent';
 import Detail from './Detail';
 import { connect } from 'react-redux';
-import { courseDetail,teachList } from "../../actions";
+import { courseDetail,teachList,messageList } from "../../actions";
 
 const style = {
     backgroundColor:"white",
@@ -19,12 +19,13 @@ const LessonDetail = props => {
 
     const id = props.match.params.id;
 
-    const { courseDetail,teachList } = props;
+    const { courseDetail,teachList,messageList } = props;
 
     useEffect(()=>{
         courseDetail(id);
         teachList(id);
-    },[id,courseDetail,teachList])
+        messageList(id);
+    },[id,courseDetail,teachList,messageList])
 
     const headerName = () => {
         if(!props.data) return;
@@ -69,4 +70,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,{courseDetail,teachList})(LessonDetail);
+export default connect(mapStateToProps,{
+    courseDetail,
+    teachList,
+    messageList})(LessonDetail);

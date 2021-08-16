@@ -1,13 +1,25 @@
 import Comment from "./Comment";
 import ReplyForm from "./ReplyForm";
-import Session from './Session';
+import Section from './Section';
 import { connect } from "react-redux"
 
-const renderSession = (sessions) => {
-    return sessions.map(
-        session => {
-            console.log(session);
-            return <Session key={session.id} name={session.name} />
+const renderSession = (sections) => {
+    return sections.map(
+        section => {
+            return <Section key={section.id} name={section.name} />
+        }
+    )
+}
+
+const renderComment = comments => {
+    return comments.map(
+        comment => {
+            return <Comment 
+                key={comment.id} 
+                name={comment.creatorName}
+                data={comment.createDate}
+                content={comment.content}
+                />
         }
     )
 }
@@ -34,7 +46,7 @@ const Detail = props => {
                     <div className="ui small minimal comments"
                         style={{marginTop:"8px"}}>
                         <h3 className="ui dividing header">课程通知</h3>
-                        <Comment/>
+                        {props.comments?renderComment(props.comments):null}
                         <ReplyForm/>
                     </div>
                 </div>
@@ -46,7 +58,8 @@ const Detail = props => {
 
 const mapStateToProps = state => {
     return {
-        list:state.detail.list
+        list:state.detail.list,
+        comments:state.detail.comments
     }
 }
 
