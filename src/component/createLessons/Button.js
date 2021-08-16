@@ -25,7 +25,7 @@ const Button = props => {
                 }
            },
         )
-        history.push("/main/lesson");
+        history.push("/main");
     }
 
     return(
@@ -38,7 +38,7 @@ const Button = props => {
             </button>
             <button type="button" className="ui small button"
                style={{marginRight: "8px"}} 
-               onClick={()=>{history.push("/main/lesson")}} >
+               onClick={()=>{history.push("/main")}} >
                    <i aria-hidden="true" className="cancel icon"></i>
                    取消
             </button>

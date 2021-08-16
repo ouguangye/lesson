@@ -13,7 +13,7 @@ export const signIn = (userName,password) => async dispatch => {
         }
     )
     dispatch({type:"SIGN_IN",payload:respond.data.result})
-    if(respond.data.result==="success")history.push("/main/lesson");
+    if(respond.data.result==="success")history.push("/main");
 }
 
 

@@ -11,7 +11,7 @@ const App=()=>{
     return (
         <Router history={history}>
             <Route path="/" exact component={Login}></Route>
-            <Route path="/main/:id" exact component={Main}></Route>
+            <Route path="/main" component={Main}></Route>
             <Route path="/create" exact component={CreateLesson}></Route>
             <Route path="/lesson/:id" exact component={LessonDetail}></Route>
         </Router>

@@ -21,8 +21,8 @@ const MainContent = () => {
                     className="ui image backgroundImage" alt="" style={imageStyle}/>
                 <Router history={history}>
                     <Switch>
-                        <Route path="/main/lesson" exact component={Content}></Route>
                         <Route path="/main/my" exact component={MyInf}></Route>
+                        <Route path="/main" component={Content}></Route>
                     </Switch>
                 </Router>
             </div>

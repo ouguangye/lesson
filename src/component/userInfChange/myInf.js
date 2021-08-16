@@ -24,7 +24,7 @@ const MyInf = props => {
             }
         )
         props.dataRequest();
-        history.push("/main/lesson");
+        history.push("/main");
     }
 
     return (
@@ -44,7 +44,7 @@ const MyInf = props => {
                                 更新个人信息
                             </button>
                             <button  className="ui cancel button"
-                               onClick ={()=>{history.push("/main/lesson")}}  >
+                               onClick ={()=>{history.push("/main")}}  >
                                 取消
                             </button>
                         </form>
