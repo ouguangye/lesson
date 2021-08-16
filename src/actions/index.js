@@ -124,3 +124,13 @@ export const changeIntro = (content) => {
         payload:content
     }
 }
+
+export const courseDetail = id => async dispatch => {
+    const respond = await lms.get(`/json/learning/courseDetail?courseId=${id}`);
+    dispatch({type:"COURSE_DETAIL",payload:respond.data});
+}
+
+export const teachList = id => async dispatch => {
+    const respond = await lms.get(`json/learning/listTeacherResource?courseId=${id}`);
+    dispatch({type:"TEACH_lIST",payload:respond.data.section});
+}

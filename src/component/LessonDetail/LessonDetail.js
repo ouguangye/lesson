@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Fooster from '../MainPage/footer';
 import BreadCrumb from '../MainPage/topHeader/breadcrumb';
 import ListBox from '../MainPage/topHeader/listBox';
@@ -6,6 +6,8 @@ import history from '../history';
 import LessonBar from './LessonBar';
 import LessonContent from './LessonContent';
 import Detail from './Detail';
+import { connect } from 'react-redux';
+import { courseDetail,teachList } from "../../actions";
 
 const style = {
     backgroundColor:"white",
@@ -13,14 +15,21 @@ const style = {
     height: "56px"
 }
 
-
-const LessonDetail = () => {
+const LessonDetail = props => {
+    const id = props.match.params.id;
 
     const headerName = () => {
         return (
-            <span onClick={()=>{history.push("/lesson/811")}}>/测试作业二</span>
+            <span onClick={()=>{history.push(`/lesson/${id}`)}}>/测试作业二</span>
         )
     }
+    
+    const { courseDetail,teachList } = props;
+
+    useEffect(()=>{
+        courseDetail(id);
+        teachList(id);
+    },[id,courseDetail,teachList])
 
     return(
         <div className="lms-app">
@@ -48,4 +57,4 @@ const LessonDetail = () => {
     )
 }
 
-export default LessonDetail;
+export default connect(null,{courseDetail,teachList})(LessonDetail);

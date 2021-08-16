@@ -86,13 +86,13 @@ const LessonContent = () => {
                         </div>
                         <i aria-hidden="true" className="dropdown icon"></i>
                         <div className="menu transition">
-                            <div role="option" className="item">
+                            <div role="option" className="item" aria-selected="false">
                                 <p>编辑课程</p>
                             </div>
-                            <div role="option" className="item">
+                            <div role="option" className="item" aria-selected="false">
                                 <p>复制课程</p>
                             </div>
-                            <div role="option" className="item">
+                            <div role="option" className="item" aria-selected="false">
                                 <p style={{textAlign:"center",color:"red"}}>
                                     删除
                                 </p>

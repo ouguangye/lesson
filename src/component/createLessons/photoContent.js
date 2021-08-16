@@ -26,7 +26,7 @@ const PhotoContent = () => {
                     </div>
                     <div className="ui content">
                         <i aria-hidden="true" className="add icon"
-                            style={{marginTop:"40px"}} alt="" style={{photoStyle}}></i>
+                              style={{photoStyle}}></i>
                         <p>上传图片</p>
                     </div>
                     <input id="filename" type="file" accept="image/*"

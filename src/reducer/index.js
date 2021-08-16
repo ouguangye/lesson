@@ -4,11 +4,13 @@ import {dataReducer} from "./dataReducer"
 import { lessonReducer } from "./lessonReducer";
 import { choiceReducer } from "./ChoiceReducer";
 import { createReducer } from "./createReducer";
+import { detailReducer } from "./detailReducer";
 
 export default combineReducers({
     auth: authReducer,
     data: dataReducer,
     lesson: lessonReducer,
     choice:choiceReducer,
-    create:createReducer
+    create:createReducer,
+    detail:detailReducer
 })

@@ -2,7 +2,7 @@ const Comment = () =>{
     return(
         <div className="comment">
             <div className="avatar">
-                <img src="/lms/ajax/images/teach.png"></img>
+                <img src="/lms/ajax/images/teach.png" alt=""></img>
             </div>
             <div className="content">
                 <span className="author">欧光业</span>
