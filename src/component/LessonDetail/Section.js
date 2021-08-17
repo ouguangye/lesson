@@ -1,6 +1,8 @@
 import React,{ useState } from "react";
 import DeleteModal from "./DeleteModal";
 import lms from "../../api/lms";
+import Unit from "./Unit";
+import HomeWork from "./HomeWork";
 import SectionModal from "./SectionModal/sectionModal";
 
 const menuConfig = {
@@ -14,6 +16,14 @@ const menuConfig = {
         radius:"8px",
         content:"content"
     }
+}
+
+const renderUnit = () => {
+    return <Unit/>
+}
+
+const renderHomeWork = () => {
+    return <HomeWork/>
 }
 
 const Section = props => {
@@ -85,8 +95,12 @@ const Section = props => {
 
           <div className={content} 
               style={{background:"white",borderRadius:"0px 0px 8px 8px"}}>
-              <div style={{marginLeft: "16px"}}>
+              <div className="ui segments" style={{border:"none",boxShadow:"none"}}>
+                {renderUnit()}
+                {renderHomeWork()}
+              </div>
 
+              <div style={{marginLeft: "16px"}}>
               <button className="ui orange basic button">
                   <i aria-hidden="true" className="tv icon"></i>
                   创建教学元素
