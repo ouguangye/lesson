@@ -50,7 +50,12 @@ const LessonDetail = props => {
        />)   }
 
     const showLessonModal = () => {
-        if(lessonVisible) return <LessonModal setVisible={setLessonVisible}/>
+        if(lessonVisible) return (
+            <LessonModal 
+                setVisible={setLessonVisible}
+                href={`/lesson/${id}`}
+                />
+            )
     }
  
 

@@ -3,7 +3,6 @@ import LessonModal from '../../createLessons/LessonModal';
 
 const CreateLessonButton = () => {
     const [visible,setVisible] = useState(false);
-
     return(
         <div className="field">
             <button className="ui positive button" 
@@ -11,9 +10,9 @@ const CreateLessonButton = () => {
                 onClick={()=>{setVisible(true)}}    >
                     创建课程
             </button>
-            {visible?<LessonModal setVisible={setVisible}/>:null}
+            {visible?<LessonModal setVisible={setVisible} href="/main"/>:null}
         </div>
     )
 }
 
-export default CreateLessonButton;
+export default CreateLessonButton

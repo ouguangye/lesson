@@ -1,13 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ReactDOM from 'react-dom';
 import lms from '../../api/lms';
 import { connect } from 'react-redux';
 import { messageList } from "../../actions"
 
 const DeleteModal = props => {
-
+    const [disable,setDisable] = useState(false);
+    const buttonType = disable ? "ui blue loading disabled button":"ui blue button"
     const onPositiveButtonClick = async(e) => {
         e.preventDefault();
+        setDisable(true);
         await lms.post(
             "/json/learning/deleteMessage",{},
             {
@@ -37,7 +39,7 @@ const DeleteModal = props => {
                             </div>
                         </div>
                         <div className="fields" style={{float:"right"}}>
-                            <button type="submit" className="ui blue button"
+                            <button type="submit" className={buttonType}
                                onClick={e=>{onPositiveButtonClick(e)}} >
                                 <i aria-hidden="true" className="check icon"></i>
                                 确定
