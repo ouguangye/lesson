@@ -116,7 +116,12 @@ const LessonContent = props => {
                             onClick={()=>{setMenuVisible(!menuVisible)}} 
                             />
                         <div className={menuTransition}>
-                            <div role="option" className="item" aria-selected="false">
+                            <div 
+                                role="option" 
+                                className="item" 
+                                aria-selected="false"
+                                onClick={()=>{props.setLessonVisible(true)}}
+                            >
                                 <p>编辑课程</p>
                             </div>
                             <div role="option" className="item" aria-selected="false">

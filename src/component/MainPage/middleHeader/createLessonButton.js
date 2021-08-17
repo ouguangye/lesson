@@ -1,14 +1,17 @@
-import React from 'react';
-import history from '../../history';
+import React, { useState } from 'react';
+import LessonModal from '../../createLessons/LessonModal';
 
 const CreateLessonButton = () => {
+    const [visible,setVisible] = useState(false);
+
     return(
         <div className="field">
             <button className="ui positive button" 
                 style={{visibility: "visible"}}
-                onClick={()=>{history.push("/create")}}    >
+                onClick={()=>{setVisible(true)}}    >
                     创建课程
             </button>
+            {visible?<LessonModal setVisible={setVisible}/>:null}
         </div>
     )
 }

@@ -1,4 +1,3 @@
-import history from "../history";
 import { connect } from "react-redux";
 import {errorCollect} from "../../actions";
 import lms from "../../api/lms";
@@ -28,7 +27,7 @@ const Button = props => {
                 }
            },
         )
-        history.push("/main");
+        props.setVisible(false);
     }
 
     return(
@@ -41,7 +40,7 @@ const Button = props => {
             </button>
             <button type="button" className="ui small button"
                style={{marginRight: "8px"}} 
-               onClick={()=>{history.push("/main")}} >
+               onClick={()=>{ props.setVisible(false);}} >
                    <i aria-hidden="true" className="cancel icon"></i>
                    取消
             </button>

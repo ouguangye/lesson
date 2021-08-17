@@ -7,8 +7,10 @@ import LessonBar from './LessonBar';
 import LessonContent from './LessonContent';
 import Detail from './Detail';
 import DeleteModal from './DeleteModal';
+import LessonModal from '../createLessons/LessonModal';
 import { connect } from 'react-redux';
 import { courseDetail,teachList,messageList } from "../../actions";
+
 
 const style = {
     backgroundColor:"white",
@@ -19,9 +21,9 @@ const style = {
 const LessonDetail = props => {
 
     const id = props.match.params.id;
-
     const { courseDetail,teachList,messageList } = props;
-    const [visible,setVisible]=useState(false);
+    const [visible,setVisible] = useState(false);
+    const [lessonVisible,setLessonVisible] = useState(false);
     const [selectedId,setSelectedId]=useState(0);
 
     useEffect(()=>{
@@ -46,7 +48,10 @@ const LessonDetail = props => {
                 id={selectedId}
                 currentId = {id}
        />)   }
-   
+
+    const showLessonModal = () => {
+        if(lessonVisible) return <LessonModal setVisible={setLessonVisible}/>
+    }
  
 
     return(
@@ -64,7 +69,7 @@ const LessonDetail = props => {
                     <LessonBar/>
                     <div style={{height:"56px"}}></div>
                     <div className="ui container">
-                        <LessonContent/>
+                        <LessonContent setLessonVisible={setLessonVisible}/>
                         <Detail 
                             currentId = {id}
                             setVisible = {setVisible} 
@@ -75,6 +80,7 @@ const LessonDetail = props => {
             </div>
             <Fooster/>
             {showModal()}
+            {showLessonModal()}
         </div>
     )
 }

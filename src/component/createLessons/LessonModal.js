@@ -5,7 +5,7 @@ import Date from './Date';
 import Button from './Button';
 import ErrorMessage from './ErrorMessage';
 
-const LessonModal = () => {
+const LessonModal = props => {
     return ReactDOM.createPortal(
         <div className="ui page modals dimmer transition visible active"
            style={{display:"flex !important"}} >
@@ -21,7 +21,7 @@ const LessonModal = () => {
                             <Part1/>
                             <Date/>
                             <ErrorMessage/>
-                            <Button/>
+                            <Button setVisible={props.setVisible}/>
                         </form>
                     </div>
                </div>
