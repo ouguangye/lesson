@@ -1,4 +1,7 @@
+import React from 'react';
+
 const Comment = props =>{
+
     return(
         <div className="comment">
             <div className="avatar">
@@ -11,7 +14,13 @@ const Comment = props =>{
                 </span>
                 <div className="text">{props.content}</div>
                 <div className="actions">
-                    <span>删除</span>
+                    <span onClick={()=>{
+                        props.setVisible(true);
+                        props.setSelectedId(props.id);
+                        }} 
+                        style={{cursor:"pointer"}}>
+                        删除
+                    </span>
                 </div>
             </div>
         </div>

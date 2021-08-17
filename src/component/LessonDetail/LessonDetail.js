@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Fooster from '../MainPage/footer';
 import BreadCrumb from '../MainPage/topHeader/breadcrumb';
 import ListBox from '../MainPage/topHeader/listBox';
@@ -6,6 +6,7 @@ import history from '../history';
 import LessonBar from './LessonBar';
 import LessonContent from './LessonContent';
 import Detail from './Detail';
+import DeleteModal from './DeleteModal';
 import { connect } from 'react-redux';
 import { courseDetail,teachList,messageList } from "../../actions";
 
@@ -20,6 +21,8 @@ const LessonDetail = props => {
     const id = props.match.params.id;
 
     const { courseDetail,teachList,messageList } = props;
+    const [visible,setVisible]=useState(false);
+    const [selectedId,setSelectedId]=useState(0);
 
     useEffect(()=>{
         courseDetail(id);
@@ -36,7 +39,15 @@ const LessonDetail = props => {
         )
     }
     
+   const showModal = () => {
+       if(visible) return (
+            <DeleteModal 
+                setVisible={setVisible} 
+                id={selectedId}
+                currentId = {id}
+       />)   }
    
+ 
 
     return(
         <div className="lms-app">
@@ -54,12 +65,12 @@ const LessonDetail = props => {
                     <div style={{height:"56px"}}></div>
                     <div className="ui container">
                         <LessonContent/>
-                        <Detail/>
+                        <Detail setVisible={setVisible} setSelectedId={setSelectedId}/>
                     </div>
                 </div>
             </div>
-
             <Fooster/>
+            {showModal()}
         </div>
     )
 }

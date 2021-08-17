@@ -11,20 +11,26 @@ const renderSession = (sections) => {
     )
 }
 
+
+const Detail = props => {
+
+    
 const renderComment = comments => {
     return comments.map(
         comment => {
             return <Comment 
-                key={comment.id} 
+                key={comment.id}
+                id = {comment.id} 
                 name={comment.creatorName}
                 data={comment.createDate}
                 content={comment.content}
+                setVisible={props.setVisible}
+                setSelectedId={props.setSelectedId}
                 />
         }
     )
 }
 
-const Detail = props => {
     return(
         <div className="ui grid">
             <div className="twelve wide column">
