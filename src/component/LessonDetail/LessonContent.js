@@ -1,5 +1,8 @@
 import React,{ useState } from 'react';
 import { connect } from 'react-redux';
+import DeleteModal from './DeleteModal';
+import history from '../history';
+import lms from '../../api/lms';
 
 const LessonContent = props => {
 
@@ -15,12 +18,25 @@ const LessonContent = props => {
             menuTransition:"menu transition"
         }
     } 
-
+ 
+    const [visible,setVisible] = useState(false);
     const [menuVisible,setMenuVisible]=useState(false);
     const {ariaExpanded,menuClass,menuTransition}=menuVisible
                                                 ?menuConfig["on"]
                                                 :menuConfig["off"];
 
+    const deleteLesson = async() => {
+        await lms.post(
+            "/json/creator/deleteCourse",{},
+            {
+                params:{
+                    courseId:props.id
+                }
+            }
+        )
+        history.push("/main");
+    }
+    
     return (
         <div className="ui segment">
             <div className="ui grid">
@@ -127,7 +143,12 @@ const LessonContent = props => {
                             <div role="option" className="item" aria-selected="false">
                                 <p>复制课程</p>
                             </div>
-                            <div role="option" className="item" aria-selected="false">
+                            <div 
+                                role="option" 
+                                className="item" 
+                                aria-selected="false"
+                                onClick={()=>{setVisible(true)}}
+                            >
                                 <p style={{textAlign:"center",color:"red"}}>
                                     删除
                                 </p>
@@ -136,6 +157,13 @@ const LessonContent = props => {
                     </div>
                 </div>
             </div>
+            {visible?
+                <DeleteModal 
+                    label="删除该课程"
+                    onPositiveButtonClick={deleteLesson}
+                    setVisible={setVisible}
+                    />
+            :null}
         </div>
     )
 }

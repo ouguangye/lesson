@@ -24,8 +24,7 @@ const renderComment = comments => {
                 name={comment.creatorName}
                 data={comment.createDate}
                 content={comment.content}
-                setVisible={props.setVisible}
-                setSelectedId={props.setSelectedId}
+                currentId={props.currentId}
                 />
         }
     )

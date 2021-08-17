@@ -6,7 +6,6 @@ import history from '../history';
 import LessonBar from './LessonBar';
 import LessonContent from './LessonContent';
 import Detail from './Detail';
-import DeleteModal from './DeleteModal';
 import LessonModal from '../createLessons/LessonModal';
 import { connect } from 'react-redux';
 import { courseDetail,teachList,messageList } from "../../actions";
@@ -22,9 +21,7 @@ const LessonDetail = props => {
 
     const id = props.match.params.id;
     const { courseDetail,teachList,messageList } = props;
-    const [visible,setVisible] = useState(false);
     const [lessonVisible,setLessonVisible] = useState(false);
-    const [selectedId,setSelectedId]=useState(0);
 
     useEffect(()=>{
         courseDetail(id);
@@ -41,13 +38,7 @@ const LessonDetail = props => {
         )
     }
     
-   const showModal = () => {
-       if(visible) return (
-            <DeleteModal 
-                setVisible={setVisible} 
-                id={selectedId}
-                currentId = {id}
-       />)   }
+  
 
     const showLessonModal = () => {
         if(lessonVisible) return (
@@ -74,17 +65,15 @@ const LessonDetail = props => {
                     <LessonBar/>
                     <div style={{height:"56px"}}></div>
                     <div className="ui container">
-                        <LessonContent setLessonVisible={setLessonVisible}/>
-                        <Detail 
-                            currentId = {id}
-                            setVisible = {setVisible} 
-                            setSelectedId = {setSelectedId}
+                        <LessonContent 
+                            setLessonVisible={setLessonVisible}
+                            id={id}
                         />
+                        <Detail currentId = {id}/>
                     </div>
                 </div>
             </div>
             <Fooster/>
-            {showModal()}
             {showLessonModal()}
         </div>
     )
