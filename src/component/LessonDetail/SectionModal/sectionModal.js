@@ -1,30 +1,42 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import moment from 'moment';
 import Date from './Date';
 import lms from '../../../api/lms';
 
 const SectionModal = props => {
-    const startDate = moment().format('YYYY-MM-DD hh:mm:ss');
-    const [endDate,setEndDate] = useState("");
-    const [name,setName] = useState("");
-    const [order,setOrder] = useState(0);
-    const [intro,setIntro] = useState("");
+    const [startDate,setStartDate] = useState(props.startDate);
+    const [endDate,setEndDate] = useState(props.endDate);
+    const [name,setName] = useState(props.name);
+    const [order,setOrder] = useState(props.order);
+    const [intro,setIntro] = useState(props.intro);
     const [disable,setDisable] = useState(false);
     const buttonType = disable ? "ui blue loading disabled button":"ui blue button"
 
     const onPositiveButtonClick = async(e) => {
         e.preventDefault();
         setDisable(true);
-        await lms.post(
+        if(props.create)await lms.post(
             "/json/creator/saveSection",{},{
                 params:{
                     name:name,
                     introduction:intro,
-                    order:order,
+                    orderId:order,
                     startDate:startDate,
                     endDate:endDate,
                     courseId:props.currentId
+                }
+            }
+        )
+        else await lms.post(
+            "/json/creator/saveSection",{},{
+                params:{
+                    name:name,
+                    introduction:intro,
+                    orderId:order,
+                    startDate:startDate,
+                    endDate:endDate,
+                    courseId:props.currentId,
+                    sectionId:props.id
                 }
             }
         )
@@ -81,6 +93,7 @@ const SectionModal = props => {
 
                     <Date 
                         startDate={startDate} 
+                        setStartDate={setStartDate}
                         endDate={endDate}
                         setEndDate={setEndDate}
                         />

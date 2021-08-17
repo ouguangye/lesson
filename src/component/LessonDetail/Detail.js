@@ -4,9 +4,7 @@ import Section from './Section';
 import { connect } from "react-redux"
 import SectionModal from "./SectionModal/sectionModal";
 import { useState } from "react";
-
-
-
+import moment from 'moment';
 
 const Detail = props => {
     const [visible,setVisible] = useState(false);
@@ -19,6 +17,10 @@ const Detail = props => {
                         id={section.id}
                         name={section.name}
                         currentId={props.currentId} 
+                        startDate={section.startDate}
+                        orderId = {section.orderId}
+                        endDate={section.endDate}
+                        intro ={section.introduction}
                     />)
             }
         )
@@ -70,7 +72,14 @@ const Detail = props => {
         {visible?
             <SectionModal 
                 setVisible={setVisible} 
-                currentId={props.currentId}/>
+                currentId={props.currentId}
+                startDate={moment().format('YYYY-MM-DD hh:mm:ss')}
+                endDate=""
+                name=""
+                order= "0"
+                intro=""
+                create = {true}
+                />
             :null}
         </div>
     )

@@ -1,6 +1,7 @@
 import React,{ useState } from "react";
 import DeleteModal from "./DeleteModal";
 import lms from "../../api/lms";
+import SectionModal from "./SectionModal/sectionModal";
 
 const menuConfig = {
     on:{
@@ -18,6 +19,7 @@ const menuConfig = {
 const Section = props => {
     const [show,setShow]=useState(false);
     const [visible,setVisible] = useState(false);
+    const [edit,setEdit] = useState(false);
     const { shadow,radius,content }=show?menuConfig["on"]:menuConfig["off"];
     const [hover,setHover] = useState(false);
     const showClass =hover?"visible":"hidden" ;
@@ -63,7 +65,11 @@ const Section = props => {
                    style={{lineHeight:"36px"}}
                     >
 
-                <span className="ui basic icon button" role="button">
+                <span 
+                    className="ui basic icon button" 
+                    role="button"
+                    onClick={()=>{setEdit(true)}}
+                >
                     <i aria-hidden="true" className="setting icon"></i>
                 </span>
 
@@ -105,6 +111,19 @@ const Section = props => {
                 onPositiveButtonClick={deleteSection}
             />
             :null}
+        {edit?
+            <SectionModal
+                setVisible={setEdit}
+                id={props.id}
+                name={props.name}
+                currentId={props.currentId} 
+                startDate={props.startDate}
+                order = {props.orderId}
+                endDate={props.endDate}
+                intro = {props.intro}
+                create={false}
+            />
+        :null}
       </div>
     )
 }

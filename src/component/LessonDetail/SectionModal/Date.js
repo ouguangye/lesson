@@ -6,8 +6,12 @@ const Date = props => {
                 <div className="ui fluid icon input" 
                     style={{margin:"8px 0px",alignItems:"baseline"}}>
                         <i aria-hidden="true" className="calendar icon"></i>
-                        <input id="startDate" name="startDate"
-                            type="text" value={props.startDate} 
+                        <input 
+                            id="startDate" 
+                            name="startDate"
+                            type="text" 
+                            value={props.startDate}
+                            onChange={e=>{props.setStartDate(e.target.value)}} 
                             >
                         </input>
                 </div>
