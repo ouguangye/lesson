@@ -2,6 +2,8 @@ import Comment from "./Comment";
 import ReplyForm from "./ReplyForm";
 import Section from './Section';
 import { connect } from "react-redux"
+import SectionModal from "./SectionModal/sectionModal";
+import { useState } from "react";
 
 const renderSession = (sections) => {
     return sections.map(
@@ -13,22 +15,22 @@ const renderSession = (sections) => {
 
 
 const Detail = props => {
-
+    const [visible,setVisible] = useState(false);
     
-const renderComment = comments => {
-    return comments.map(
-        comment => {
-            return <Comment 
-                key={comment.id}
-                id = {comment.id} 
-                name={comment.creatorName}
-                data={comment.createDate}
-                content={comment.content}
-                currentId={props.currentId}
-                />
-        }
-    )
-}
+    const renderComment = comments => {
+        return comments.map(
+            comment => {
+                return <Comment 
+                    key={comment.id}
+                    id = {comment.id} 
+                    name={comment.creatorName}
+                    data={comment.createDate}
+                    content={comment.content}
+                    currentId={props.currentId}
+                    />
+            }
+        )
+    }
 
     return(
         <div className="ui grid">
@@ -40,7 +42,9 @@ const renderComment = comments => {
                         border:"1px dashed rgb(65, 131, 196)",
                         marginBottom: "8px",
                         color:"rgb(65, 131, 196)",
-                        cursor:"pointer"}}>
+                        cursor:"pointer"}}
+                    onClick={()=>{setVisible(true)}}
+                >
                     <i aria-hidden="true" className="add icon"></i>
                     创建章节
                 </div>
@@ -56,7 +60,7 @@ const renderComment = comments => {
                     </div>
                 </div>
             </div>
-
+        {visible?<SectionModal/>:null}
         </div>
     )
 }
