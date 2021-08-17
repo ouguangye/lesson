@@ -53,7 +53,7 @@ const renderComment = comments => {
                         style={{marginTop:"8px"}}>
                         <h3 className="ui dividing header">课程通知</h3>
                         {props.comments?renderComment(props.comments):null}
-                        <ReplyForm/>
+                        <ReplyForm currentId={props.currentId}/>
                     </div>
                 </div>
             </div>

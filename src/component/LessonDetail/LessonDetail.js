@@ -65,7 +65,11 @@ const LessonDetail = props => {
                     <div style={{height:"56px"}}></div>
                     <div className="ui container">
                         <LessonContent/>
-                        <Detail setVisible={setVisible} setSelectedId={setSelectedId}/>
+                        <Detail 
+                            currentId = {id}
+                            setVisible = {setVisible} 
+                            setSelectedId = {setSelectedId}
+                        />
                     </div>
                 </div>
             </div>
