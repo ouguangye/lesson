@@ -1,24 +1,64 @@
-const style = {
-    fontSize:"16px", 
-    lineHeight:"40px",
-    background:"white",
-    padding:"8px",
-    marginTop: "8px", 
-    boxShadow: "rgba(0, 0, 0, 0.08) 0px 2px 4px 0px",
-    borderRadius:"8px"
+import React,{ useState } from "react";
+
+const menuConfig = {
+    on:{
+        shadow:"none",
+        radius:"8px 8px 0px 0px",
+        content:"content active"
+    },
+    off:{
+        shadow:"rgba(0, 0, 0, 0.08) 0px 2px 4px 0px",
+        radius:"8px",
+        content:"content"
+    }
 }
 
 const Section = props => {
+    const [show,setShow]=useState(false);
+    const { shadow,radius,content }=show?menuConfig["on"]:menuConfig["off"];
+    const [hover,setHover] = useState(false);
+    const showClass =hover?"visible":"hidden" ;
+    const style = {
+        fontSize:"16px", 
+        lineHeight:"40px",
+        background:"white",
+        padding:"8px",
+        marginTop: "8px", 
+        boxShadow: shadow,
+        borderRadius:radius
+    }
+
     return(
         <div className="accordion ui fluid styled" 
         style={{background:"transparent"}}>
 
-          <div className="title ellipsis" style={style}>
-              <i aria-hidden="true" className="dropdown icon"></i>
+          <div 
+            className="title ellipsis" 
+            style={style}
+            onMouseEnter={()=>{setHover(true);}}
+            onMouseLeave={()=>{setHover(false)}}
+              >
+              <i 
+                aria-hidden="true" 
+                className="dropdown icon"
+                onClick={()=>{setShow(!show)}}
+                />
               {props.name}
+              <div className={`ui right floated buttons fade left ${showClass} transition`}
+                   style={{lineHeight:"36px"}}
+                    >
+
+                <span className="ui basic icon button" role="button">
+                    <i aria-hidden="true" className="setting icon"></i>
+                </span>
+
+                <span className="ui basic icon button" role="button">
+                    <i aria-hidden="true" className="trash icon"></i>
+                </span>
+              </div>
           </div>
 
-          <div className="content" 
+          <div className={content} 
               style={{background:"white",borderRadius:"0px 0px 8px 8px"}}>
               <div style={{marginLeft: "16px"}}>
 
