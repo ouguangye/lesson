@@ -21,8 +21,8 @@ const Detail = props => {
                         orderId = {section.orderId}
                         endDate={section.endDate}
                         intro ={section.introduction}
-                        homework = {section.homework}
-                        unit = {section.unit}
+                        homeworks = {section.homework}
+                        units = {section.unit}
                     />)
             }
         )

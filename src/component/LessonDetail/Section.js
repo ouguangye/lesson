@@ -5,6 +5,7 @@ import Unit from "./Unit";
 import HomeWork from "./HomeWork";
 import SectionModal from "./SectionModal/sectionModal";
 
+
 const menuConfig = {
     on:{
         shadow:"none",
@@ -18,12 +19,32 @@ const menuConfig = {
     }
 }
 
-const renderUnit = () => {
-    return <Unit/>
+
+const renderUnit = units => {
+    if(!units)return;
+    return units.map(
+        unit=>{
+            return (
+                <Unit
+                    name = {unit.name} 
+                />
+                )
+        }
+    )
 }
 
-const renderHomeWork = () => {
-    return <HomeWork/>
+const renderHomeWork = homeworks => {
+   if(!homeworks)return;
+   return homeworks.map(
+       homework=>{
+           return (
+               <HomeWork
+                   name = {homework.name}
+                   endDate = {homework.endDate} 
+                />
+           )
+       }
+   )
 }
 
 const Section = props => {
@@ -96,8 +117,8 @@ const Section = props => {
           <div className={content} 
               style={{background:"white",borderRadius:"0px 0px 8px 8px"}}>
               <div className="ui segments" style={{border:"none",boxShadow:"none"}}>
-                {renderUnit()}
-                {renderHomeWork()}
+                {renderUnit(props.units)}
+                {renderHomeWork(props.homeworks)}
               </div>
 
               <div style={{marginLeft: "16px"}}>

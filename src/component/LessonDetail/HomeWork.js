@@ -1,10 +1,15 @@
+import React from 'react';
+
+
 const style = {
     padding:"4px 16px",
     cursor:"pointer",
     background:"white"
 }
 
-const HomeWork = () => {
+
+
+const HomeWork = props => {
     return (
         <div className="ui segment" style={style}>
             <span style={{lineHeight:"36px",color:"black"}}>
@@ -13,7 +18,7 @@ const HomeWork = () => {
                     className="olive pencil icon"
                     style={{marginRight:"8px"}}
                 ></i>
-                React作业
+                {props.name}
             </span>
 
             <span style={{marginLeft:"16px"}}>
@@ -22,7 +27,7 @@ const HomeWork = () => {
                     className="bell outline icon"
                     style={{marginRight:"8px"}}
                 ></i>
-                6天22小时23分钟后截止
+                {`${props.endDate}之前交`}
             </span>
 
             <div className="ui right floated buttons fade left hidden transition">
