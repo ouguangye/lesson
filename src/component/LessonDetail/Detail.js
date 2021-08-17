@@ -60,7 +60,11 @@ const Detail = props => {
                     </div>
                 </div>
             </div>
-        {visible?<SectionModal/>:null}
+        {visible?
+            <SectionModal 
+                setVisible={setVisible} 
+                currentId={props.currentId}/>
+            :null}
         </div>
     )
 }

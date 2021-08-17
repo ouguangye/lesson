@@ -2,12 +2,34 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import moment from 'moment';
 import Date from './Date';
+import lms from '../../../api/lms';
 
-const SectionModal = () => {
+const SectionModal = props => {
     const startDate = moment().format('YYYY-MM-DD hh:mm:ss');
     const [endDate,setEndDate] = useState("");
+    const [name,setName] = useState("");
+    const [order,setOrder] = useState(0);
+    const [intro,setIntro] = useState("");
     const [disable,setDisable] = useState(false);
     const buttonType = disable ? "ui blue loading disabled button":"ui blue button"
+
+    const onPositiveButtonClick = async(e) => {
+        e.preventDefault();
+        setDisable(true);
+        await lms.post(
+            "/json/creator/saveSection",{},{
+                params:{
+                    name:name,
+                    introduction:intro,
+                    order:order,
+                    startDate:startDate,
+                    endDate:endDate,
+                    courseId:props.currentId
+                }
+            }
+        )
+        props.setVisible(false);
+    }
 
     return ReactDOM.createPortal(
         <div className="ui page modals dimmer transition visible active">
@@ -26,6 +48,8 @@ const SectionModal = () => {
                                 <input name="name" 
                                        placeholder="新建章节的名称"
                                        required type="text"
+                                       value={name}
+                                       onChange={e=>setName(e.target.value)}
                                 ></input>
                             </div>
                         </div>
@@ -36,7 +60,8 @@ const SectionModal = () => {
                                     name="orderId"
                                     placeholder="新建章节的序号"
                                     type="text"
-                                    value="0"
+                                    value={order}
+                                    onChange={e=>setOrder(e.target.value)}
                                 ></input>
                             </div>
                         </div>
@@ -48,6 +73,8 @@ const SectionModal = () => {
                             name="introduction" 
                             placeholder="新建章节的简单介绍"
                             rows="3"
+                            value={intro}
+                            onChange={e=>{setIntro(e.target.value)}}
                         />
                     </div>
 
@@ -63,6 +90,7 @@ const SectionModal = () => {
                             className={buttonType} 
                             id="createButton"
                             style={{marginRight: "8px"}}
+                            onClick={e=>{onPositiveButtonClick(e)}}
                         >
                             <i aria-hidden="true" className="check icon"></i>
                             确定
@@ -71,6 +99,7 @@ const SectionModal = () => {
                             type="button" 
                             className="ui small button"
                             style={{marginRight: "8px"}} 
+                            onClick={()=>{props.setVisible(false);}}
                         >
                             <i aria-hidden="true" className="cancel icon"></i>
                             取消
