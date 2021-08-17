@@ -29,6 +29,7 @@ const SectionModal = props => {
             }
         )
         props.setVisible(false);
+        window.location.href=`/lesson/${props.currentId}`;
     }
 
     return ReactDOM.createPortal(

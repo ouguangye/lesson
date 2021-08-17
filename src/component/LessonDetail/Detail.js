@@ -5,18 +5,25 @@ import { connect } from "react-redux"
 import SectionModal from "./SectionModal/sectionModal";
 import { useState } from "react";
 
-const renderSession = (sections) => {
-    return sections.map(
-        section => {
-            return <Section key={section.id} name={section.name} />
-        }
-    )
-}
+
 
 
 const Detail = props => {
     const [visible,setVisible] = useState(false);
-    
+    const renderSession = (sections) => {
+        return sections.map(
+            section => {
+                return (
+                    <Section 
+                        key={section.id} 
+                        id={section.id}
+                        name={section.name}
+                        currentId={props.currentId} 
+                    />)
+            }
+        )
+    }
+
     const renderComment = comments => {
         return comments.map(
             comment => {

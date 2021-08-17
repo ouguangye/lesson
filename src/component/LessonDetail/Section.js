@@ -1,4 +1,6 @@
 import React,{ useState } from "react";
+import DeleteModal from "./DeleteModal";
+import lms from "../../api/lms";
 
 const menuConfig = {
     on:{
@@ -15,6 +17,7 @@ const menuConfig = {
 
 const Section = props => {
     const [show,setShow]=useState(false);
+    const [visible,setVisible] = useState(false);
     const { shadow,radius,content }=show?menuConfig["on"]:menuConfig["off"];
     const [hover,setHover] = useState(false);
     const showClass =hover?"visible":"hidden" ;
@@ -26,6 +29,18 @@ const Section = props => {
         marginTop: "8px", 
         boxShadow: shadow,
         borderRadius:radius
+    }
+
+    const deleteSection = async() => {
+        await lms.post(
+            "/json/creator/deleteSection",{},{
+                params:{
+                    courseId: props.currentId,
+                    id: props.id
+                }
+            }
+        )
+        window.location.href=`/lesson/${props.currentId}`
     }
 
     return(
@@ -52,7 +67,11 @@ const Section = props => {
                     <i aria-hidden="true" className="setting icon"></i>
                 </span>
 
-                <span className="ui basic icon button" role="button">
+                <span 
+                    className="ui basic icon button" 
+                    role="button"
+                    onClick={()=>{setVisible(true)}}
+                >
                     <i aria-hidden="true" className="trash icon"></i>
                 </span>
               </div>
@@ -79,7 +98,13 @@ const Section = props => {
 
               </div>
           </div>
-
+        {visible?
+            <DeleteModal
+                label="删除章节"
+                setVisible={setVisible}
+                onPositiveButtonClick={deleteSection}
+            />
+            :null}
       </div>
     )
 }
