@@ -1,7 +1,26 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { connect } from 'react-redux';
 
 const LessonContent = props => {
+
+    const menuConfig = {
+        on:{
+            ariaExpanded:"true",
+            menuClass:"ui active visible dropdown",
+            menuTransition:"menu transition visible"
+        },
+        off:{
+            ariaExpanded:"false",
+            menuClass:"ui dropdown",
+            menuTransition:"menu transition"
+        }
+    } 
+
+    const [menuVisible,setMenuVisible]=useState(false);
+    const {ariaExpanded,menuClass,menuTransition}=menuVisible
+                                                ?menuConfig["on"]
+                                                :menuConfig["off"];
+
     return (
         <div className="ui segment">
             <div className="ui grid">
@@ -86,14 +105,17 @@ const LessonContent = props => {
                 </div>
 
                 <div className="two wide column">
-                    <div role="listbox" aria-expanded="false" 
-                     className="ui dropdown" tabIndex="0">
+                    <div role="listbox" aria-expanded={ariaExpanded} 
+                     className={menuClass} tabIndex="0">
                         <div aria-atomic="true" aria-live="polite" 
                             role="alert" className="divider text">
                                 课程选项
                         </div>
-                        <i aria-hidden="true" className="dropdown icon"></i>
-                        <div className="menu transition">
+                        <i  aria-hidden="true" 
+                            className="dropdown icon"
+                            onClick={()=>{setMenuVisible(!menuVisible)}} 
+                            />
+                        <div className={menuTransition}>
                             <div role="option" className="item" aria-selected="false">
                                 <p>编辑课程</p>
                             </div>

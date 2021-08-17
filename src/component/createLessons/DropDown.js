@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {openCollect} from '../../actions'
 
 const DropDown = props => {
+
     const menuConfig = {
         on:{
             ariaExpanded:"true",
@@ -16,6 +17,7 @@ const DropDown = props => {
             menuTransition:"menu transition"
         }
     } 
+
     const [menuVisible,setMenuVisible]=useState(false);
     const [option,setOption]=useState("否");
 
