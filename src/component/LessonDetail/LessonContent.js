@@ -1,8 +1,6 @@
 import React,{ useState } from 'react';
 import { connect } from 'react-redux';
-import DeleteModal from './DeleteModal';
-import history from '../history';
-import lms from '../../api/lms';
+import LessonMenu from './LessonMenu';
 
 const LessonContent = props => {
 
@@ -19,23 +17,11 @@ const LessonContent = props => {
         }
     } 
  
-    const [visible,setVisible] = useState(false);
     const [menuVisible,setMenuVisible]=useState(false);
     const {ariaExpanded,menuClass,menuTransition}=menuVisible
                                                 ?menuConfig["on"]
                                                 :menuConfig["off"];
 
-    const deleteLesson = async() => {
-        await lms.post(
-            "/json/creator/deleteCourse",{},
-            {
-                params:{
-                    courseId:props.id
-                }
-            }
-        )
-        history.push("/main");
-    }
     
     return (
         <div className="ui segment">
@@ -132,38 +118,11 @@ const LessonContent = props => {
                             onClick={()=>{setMenuVisible(!menuVisible)}} 
                             />
                         <div className={menuTransition}>
-                            <div 
-                                role="option" 
-                                className="item" 
-                                aria-selected="false"
-                                onClick={()=>{props.setLessonVisible(true)}}
-                            >
-                                <p>编辑课程</p>
-                            </div>
-                            <div role="option" className="item" aria-selected="false">
-                                <p>复制课程</p>
-                            </div>
-                            <div 
-                                role="option" 
-                                className="item" 
-                                aria-selected="false"
-                                onClick={()=>{setVisible(true)}}
-                            >
-                                <p style={{textAlign:"center",color:"red"}}>
-                                    删除
-                                </p>
-                            </div>
+                            <LessonMenu id={props.id}/>
                         </div>
                     </div>
                 </div>
             </div>
-            {visible?
-                <DeleteModal 
-                    label="删除该课程"
-                    onPositiveButtonClick={deleteLesson}
-                    setVisible={setVisible}
-                    />
-            :null}
         </div>
     )
 }

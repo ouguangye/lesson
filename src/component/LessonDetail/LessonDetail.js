@@ -21,7 +21,6 @@ const LessonDetail = props => {
 
     const id = props.match.params.id;
     const { courseDetail,teachList,messageList,dataRequest } = props;
-    const [lessonVisible,setLessonVisible] = useState(false);
 
     useEffect(()=>{
         courseDetail(id);
@@ -41,14 +40,7 @@ const LessonDetail = props => {
     
   
 
-    const showLessonModal = () => {
-        if(lessonVisible) return (
-            <LessonModal 
-                setVisible={setLessonVisible}
-                href={`/lesson/${id}`}
-                />
-            )
-    }
+    
  
 
     return(
@@ -66,16 +58,12 @@ const LessonDetail = props => {
                     <LessonBar/>
                     <div style={{height:"56px"}}></div>
                     <div className="ui container">
-                        <LessonContent 
-                            setLessonVisible={setLessonVisible}
-                            id={id}
-                        />
+                        <LessonContent id={id}/>
                         <Detail currentId = {id}/>
                     </div>
                 </div>
             </div>
             <Fooster/>
-            {showLessonModal()}
         </div>
     )
 }
