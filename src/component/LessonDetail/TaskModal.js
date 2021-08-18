@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import lms from '../../api/lms';
 import Date from './SectionModal/Date';
+import { connect } from 'react-redux';
+import { teachList } from '../../actions';
 
 const TaskModal = props => {
     const [startDate,setStartDate] = useState(props.startDate);
@@ -28,7 +30,7 @@ const TaskModal = props => {
             }
         )
         props.setVisible(false);
-        window.location.href=`/lesson/${props.currentId}`;
+        props.teachList(props.currentId);
     }
 
     return ReactDOM.createPortal(
@@ -103,4 +105,4 @@ const TaskModal = props => {
     )
 }
 
-export default TaskModal;
+export default connect(null,{teachList})(TaskModal);

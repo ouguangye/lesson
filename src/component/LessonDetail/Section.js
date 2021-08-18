@@ -141,6 +141,7 @@ const Section = props => {
             <SectionModal
                 setVisible={setEdit}
                 id={props.id}
+                label="编辑章节"
                 name={props.name}
                 currentId={props.currentId} 
                 startDate={props.startDate}

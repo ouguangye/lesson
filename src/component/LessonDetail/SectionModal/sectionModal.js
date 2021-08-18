@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Date from './Date';
 import lms from '../../../api/lms';
+import { connect } from 'react-redux';
+import { teachList } from '../../../actions';
 
 const SectionModal = props => {
     const [startDate,setStartDate] = useState(props.startDate);
@@ -41,16 +43,16 @@ const SectionModal = props => {
             }
         )
         props.setVisible(false);
-        window.location.href=`/lesson/${props.currentId}`;
+        props.teachList(props.currentId);
     }
-
+    console.log(props);
     return ReactDOM.createPortal(
         <div className="ui page modals dimmer transition visible active">
         <div className="ui small scrolling modal transition visible active"
              style={{marginTop:"10%",marginLeft:"19%"}} >
             <div className="header">
                 <i aria-hidden="true" className="book icon"></i>
-                创建章节
+                {props.label}
             </div>
             <div className="content">
                 <form className="ui form">
@@ -128,4 +130,4 @@ const SectionModal = props => {
     )
 }
 
-export default SectionModal;
+export default connect(null,{teachList})(SectionModal);

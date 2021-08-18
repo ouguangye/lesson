@@ -80,6 +80,7 @@ const Detail = props => {
                 name=""
                 order= "0"
                 intro=""
+                label="新建章节"
                 create = {true}
                 />
             :null}
