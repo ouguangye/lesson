@@ -1,17 +1,52 @@
-import React from 'react';
-
-
-const style = {
-    padding:"4px 16px",
-    cursor:"pointer",
-    background:"white"
-}
-
-
+import React,{useState} from 'react';
+import lms from "../../api/lms";
+import DeleteModal from "./DeleteModal";
+import { connect } from "react-redux";
+import { teachList } from "../../actions";
 
 const HomeWork = props => {
+    const [showButton,setShowButton] = useState(false);
+    const [showDelete,setShowDelete] = useState(false);
+    const color = showButton?"rgba(51,37,174,0.04)":"white";
+    const status = showButton?"visible":"hidden";
+    const style = {
+        padding: "4px 16px",
+        cursor:"pointer",
+        borderRadius:"4px",
+        background:color
+    }
+
+    const deleteHomeWork = async() => {
+        await lms.post(
+            "/homework/deleteHomework?type=0",{},
+            {
+                params:{
+                    id:props.id
+                }
+            }
+        )
+        setShowDelete(false);
+        props.teachList(props.currentId);
+    }
+
+    const showDeleteModal = () => {
+        if(!showDelete)return;
+        return(
+            <DeleteModal
+                label = "删除作业"
+                setVisible = {setShowDelete}
+                onPositiveButtonClick={deleteHomeWork}
+            />
+        )
+    }
+
     return (
-        <div className="ui segment" style={style}>
+        <div 
+            className="ui segment" 
+            style={style}
+            onMouseEnter={()=>{setShowButton(true);}}
+            onMouseLeave={()=>{setShowButton(false)}}
+        >
             <span style={{lineHeight:"36px",color:"black"}}>
                 <i 
                     aria-hidden="true" 
@@ -30,17 +65,22 @@ const HomeWork = props => {
                 {`${props.endDate}之前交`}
             </span>
 
-            <div className="ui right floated buttons fade left hidden transition">
+            <div className={`ui right floated buttons fade left ${status} transition`}>
                 <span className="ui basic icon button" role="button">
                     <i aria-hidden="true" className="edit icon"></i>
                 </span>
 
-                <span className="ui basic icon button" role="button">
+                <span 
+                    className="ui basic icon button" 
+                    role="button"
+                    onClick={()=>{setShowDelete(true)}}
+                >
                     <i aria-hidden="true" className="trash icon"></i>
                 </span>
             </div>
+            {showDeleteModal()}
         </div>
     )
 }
 
-export default HomeWork;
+export default connect(null,{teachList})(HomeWork);

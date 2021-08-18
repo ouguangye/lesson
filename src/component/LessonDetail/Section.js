@@ -57,7 +57,10 @@ const Section = props => {
             homework=>{
                 return (
                     <HomeWork
+                        key={homework.id}
+                        id = {homework.id}
                         name = {homework.name}
+                        currentId={props.currentId}
                         endDate = {homework.endDate} 
                      />
                 )
@@ -71,6 +74,7 @@ const Section = props => {
             unit=>{
                 return (
                     <Unit
+                        key={unit.id}
                         name = {unit.name} 
                         id = {unit.id}
                         currentId={props.currentId}
