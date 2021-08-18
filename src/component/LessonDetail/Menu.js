@@ -20,8 +20,27 @@ const Menu = props => {
                 name={props.name}
                 currentId={props.currentId}
                 setVisible={setUnitShow}
-                choice = {true}
                 id={props.id}
+                href="/json/creator/saveUnit"
+            />)
+    }
+   
+    const homeworkModal = () => {
+        if(!homeworkShow)return;
+        return (
+            <TaskModal
+                icon="pencil icon"
+                topText="创建作业"
+                headerText = "作业名称"
+                mainText = "作业简介"
+                startDate={moment().format('YYYY-MM-DD hh:mm:ss')}
+                endDate = ""
+                intro=""
+                name=""
+                currentId={props.currentId}
+                setVisible={setHomeWorkShow}
+                id={props.id}
+                href="/homework/saveHomework?type=0"
             />)
     }
 
@@ -33,7 +52,9 @@ const Menu = props => {
                 创建教学元素
             </button>
 
-            <button className="ui orange basic button">
+            <button className="ui orange basic button"
+                onClick={()=>{setHomeWorkShow(true)}}
+            >
                 <i aria-hidden="true" className="pencil icon"></i>
                 创建作业
             </button>
@@ -43,6 +64,7 @@ const Menu = props => {
                 团队实验
             </button>
             {unitModal()}
+            {homeworkModal()}
         </div>
     )
 }

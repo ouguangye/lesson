@@ -2,7 +2,7 @@ const Date = props => {
     return (
         <div className="equal width fields">
             <div className="field">
-                <label>章节开始时间</label>
+                <label>开始时间</label>
                 <div className="ui fluid icon input" 
                     style={{margin:"8px 0px",alignItems:"baseline"}}>
                         <i aria-hidden="true" className="calendar icon"></i>
@@ -17,7 +17,7 @@ const Date = props => {
                 </div>
             </div>
             <div className="field">
-                <label>章节结束时间</label>
+                <label>结束时间</label>
                 <div className="ui fluid icon input" 
                     style={{margin:"8px 0px",alignItems:"baseline"}}>
                         <i aria-hidden="true" className="calendar icon"></i>

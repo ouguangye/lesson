@@ -14,8 +14,8 @@ const TaskModal = props => {
     const onPositiveButtonClick = async(e) => {
         e.preventDefault();
         setDisable(true);
-        if(props.choice)await lms.post(
-            "/json/creator/saveUnit",{},
+        await lms.post(
+            props.href,{},
             {
                 params:{
                     sectionId:props.id,
