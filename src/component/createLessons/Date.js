@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import moment from 'moment'
 import {startDateCollect,endDateCollect} from "../../actions"
 
 
 const Date = props => {
 
     const {startDateCollect,endDateCollect,startDate,endDate}=props;
-
-    useEffect(()=>{
-        startDateCollect(moment().format('YYYY-MM-DD'));
-        endDateCollect("");
-    },[startDateCollect,endDateCollect])
 
     return (
         <div className="equal width fields">

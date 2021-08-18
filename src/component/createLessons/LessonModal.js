@@ -4,9 +4,23 @@ import Part1 from './part1';
 import Date from './Date';
 import Button from './Button';
 import ErrorMessage from './ErrorMessage';
+import { useEffect } from 'react';
+import moment from 'moment';
+import { connect } from 'react-redux';
+import { nameCollect,hourCollect,creditCollect,startDateCollect,endDateCollect} from '../../actions';
 
 const LessonModal = props => {
-    console.log(props);
+    
+    const {nameCollect,hourCollect,creditCollect,startDateCollect,endDateCollect}=props;
+
+    useEffect(()=>{
+        nameCollect("") ;
+        hourCollect("");
+        creditCollect("");
+        startDateCollect(moment().format('YYYY-MM-DD'));
+        endDateCollect("");
+    },[nameCollect])
+
     return ReactDOM.createPortal(
         <div className="ui page modals dimmer transition visible active"
            style={{display:"flex !important"}} >
@@ -31,4 +45,10 @@ const LessonModal = props => {
     )
 }
 
-export default LessonModal;
+export default connect(null,{
+    nameCollect,
+    hourCollect,
+    creditCollect,
+    startDateCollect,
+    endDateCollect
+})(LessonModal);

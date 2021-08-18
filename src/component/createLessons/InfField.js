@@ -4,10 +4,6 @@ import {hourCollect,creditCollect} from "../../actions";
 
 const InfField = props => {
     const {hourCollect,creditCollect} = props;
-    useEffect(()=>{
-        hourCollect("");
-        creditCollect("");
-    },[hourCollect,creditCollect])
 
     return(
         <div className="equal width fields">
