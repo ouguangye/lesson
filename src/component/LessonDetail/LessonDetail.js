@@ -8,7 +8,7 @@ import LessonContent from './LessonContent';
 import Detail from './Detail';
 import LessonModal from '../createLessons/LessonModal';
 import { connect } from 'react-redux';
-import { courseDetail,teachList,messageList } from "../../actions";
+import { courseDetail,teachList,messageList,dataRequest } from "../../actions";
 
 
 const style = {
@@ -20,14 +20,15 @@ const style = {
 const LessonDetail = props => {
 
     const id = props.match.params.id;
-    const { courseDetail,teachList,messageList } = props;
+    const { courseDetail,teachList,messageList,dataRequest } = props;
     const [lessonVisible,setLessonVisible] = useState(false);
 
     useEffect(()=>{
         courseDetail(id);
         teachList(id);
         messageList(id);
-    },[id,courseDetail,teachList,messageList])
+        dataRequest();
+    },[id,courseDetail,teachList,messageList,dataRequest])
 
     const headerName = () => {
         if(!props.data) return;
@@ -88,4 +89,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps,{
     courseDetail,
     teachList,
-    messageList})(LessonDetail);
+    messageList,
+    dataRequest
+})(LessonDetail);

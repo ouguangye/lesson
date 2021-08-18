@@ -4,7 +4,7 @@ import lms from "../../api/lms";
 import Unit from "./Unit";
 import HomeWork from "./HomeWork";
 import SectionModal from "./SectionModal/sectionModal";
-
+import Menu from "./Menu";
 
 const menuConfig = {
     on:{
@@ -120,24 +120,11 @@ const Section = props => {
                 {renderUnit(props.units)}
                 {renderHomeWork(props.homeworks)}
               </div>
-
-              <div style={{marginLeft: "16px"}}>
-              <button className="ui orange basic button">
-                  <i aria-hidden="true" className="tv icon"></i>
-                  创建教学元素
-              </button>
-
-              <button className="ui orange basic button">
-                  <i aria-hidden="true" className="pencil icon"></i>
-                  创建作业
-              </button>
-
-              <button className="ui orange basic button">
-                  <i aria-hidden="true" className="lab icon"></i>
-                  团队实验
-              </button>
-
-              </div>
+              <Menu 
+                currentId={props.currentId} 
+                name={props.name}
+                id={props.id}
+              />
           </div>
         {visible?
             <DeleteModal
