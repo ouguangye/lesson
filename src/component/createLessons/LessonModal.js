@@ -14,11 +14,11 @@ const LessonModal = props => {
     const {nameCollect,hourCollect,creditCollect,startDateCollect,endDateCollect}=props;
 
     useEffect(()=>{
-        nameCollect("") ;
-        hourCollect("");
-        creditCollect("");
-        startDateCollect(moment().format('YYYY-MM-DD'));
-        endDateCollect("");
+        nameCollect(props.name) ;
+        hourCollect(props.hour);
+        creditCollect(props.credit);
+        startDateCollect(props.startDate);
+        endDateCollect(props.endDate);
     },[nameCollect])
 
     return ReactDOM.createPortal(
