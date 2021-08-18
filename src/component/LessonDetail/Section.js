@@ -77,7 +77,11 @@ const Section = props => {
                         key={unit.id}
                         name = {unit.name} 
                         id = {unit.id}
+                        sectionId = {props.id}
                         currentId={props.currentId}
+                        startDate = {unit.startDate}
+                        endDate= { unit.endDate }
+                        intro = {unit.introduction}
                     />
                     )
             }

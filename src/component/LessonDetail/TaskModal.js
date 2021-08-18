@@ -16,19 +16,43 @@ const TaskModal = props => {
     const onPositiveButtonClick = async(e) => {
         e.preventDefault();
         setDisable(true);
-        await lms.post(
-            props.href,{},
-            {
-                params:{
-                    sectionId:props.id,
-                    name:name,
-                    startDate:startDate,
-                    endDate:endDate,
-                    introduction:intro,
-                    courseId:props.currentId
-                }
+        switch (props.choice){
+            case 0:{
+                await lms.post(
+                    props.href,{},
+                    {
+                        params:{
+                            sectionId:props.id,
+                            name:name,
+                            startDate:startDate,
+                            endDate:endDate,
+                            introduction:intro,
+                            courseId:props.currentId
+                        }
+                    }
+                )
+                break;
             }
-        )
+            case 1:{
+                await lms.post(
+                    props.href,{},
+                    {
+                        params:{
+                            sectionId:props.id,
+                            name:name,
+                            startDate:startDate,
+                            endDate:endDate,
+                            introduction:intro,
+                            courseId:props.currentId,
+                            unitId:props.unitId
+                        }
+                    }
+                )
+                break;
+            }
+            default:break;
+        }
+        
         props.setVisible(false);
         props.teachList(props.currentId);
     }

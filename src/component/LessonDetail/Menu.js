@@ -22,6 +22,7 @@ const Menu = props => {
                 setVisible={setUnitShow}
                 id={props.id}
                 href="/json/creator/saveUnit"
+                choice = {0}
             />)
     }
    
@@ -41,6 +42,7 @@ const Menu = props => {
                 setVisible={setHomeWorkShow}
                 id={props.id}
                 href="/homework/saveHomework?type=0"
+                choice = {0}
             />)
     }
 

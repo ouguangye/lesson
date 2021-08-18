@@ -3,8 +3,10 @@ import lms from "../../api/lms";
 import DeleteModal from "./DeleteModal";
 import { connect } from "react-redux";
 import { teachList } from "../../actions";
+import TaskModal from "./TaskModal";
 
 const Unit = props => {
+    const [unitShow,setUnitShow] = useState(false);
     const [showButton,setShowButton] = useState(false);
     const [showDelete,setShowDelete] = useState(false);
     const color = showButton?"rgba(51,37,174,0.04)":"white";
@@ -16,6 +18,27 @@ const Unit = props => {
         background:color
     }
    
+    const unitModal = () => {
+        if(!unitShow)return;
+        return (
+            <TaskModal
+                icon="tv icon"
+                topText="编辑教学元素"
+                headerText = "教学资源"
+                mainText = "教学资源简介"
+                startDate={props.startDate}
+                endDate = {props.endDate}
+                intro={props.intro}
+                name={props.name}
+                currentId={props.currentId}
+                setVisible={setUnitShow}
+                id={props.sectionId}
+                unitId ={props.id}
+                href="/json/creator/saveUnit"
+                choice = {1}
+            />)
+    }
+
     const showDeleteModal = () => {
         if(!showDelete)return;
         return(
@@ -55,7 +78,11 @@ const Unit = props => {
                 <span>{props.name}</span>
             </span>
             <div className={`ui right floated buttons fade left ${status} transition`}>
-                <span className="ui basic icon button" role="button">
+                <span 
+                    className="ui basic icon button" 
+                    role="button"
+                    onClick={()=>{setUnitShow(true)}}
+                >
                     <i aria-hidden="true" className="edit icon"></i>
                 </span>
 
@@ -68,6 +95,7 @@ const Unit = props => {
                 </span>
             </div>
             {showDeleteModal()}
+            {unitModal()}
         </div>
         )
 }
