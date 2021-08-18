@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PhotoContent from './photoContent';
 import InfField from './InfField';
 import DropDown from './DropDown';

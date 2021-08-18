@@ -24,7 +24,7 @@ const LessonMenu = props => {
             />
         )
     }
-    console.log(props.data.name);
+    //console.log(props.data.name);
     const deleteModal = () =>{
         if(!visible)return;
         return (
