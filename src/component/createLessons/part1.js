@@ -17,6 +17,7 @@ const Part1 = props => {
                         <div className="ui input">
                             <input name="name" placeholder="新建课程班名称"
                                 type="text"
+                                value={props.name}
                                 onChange={
                                     e => {props.nameCollect(e.target.value)}
                                 }/>

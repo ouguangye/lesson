@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import Fooster from '../MainPage/footer';
 import BreadCrumb from '../MainPage/topHeader/breadcrumb';
 import ListBox from '../MainPage/topHeader/listBox';
@@ -6,7 +6,6 @@ import history from '../history';
 import LessonBar from './LessonBar';
 import LessonContent from './LessonContent';
 import Detail from './Detail';
-import LessonModal from '../createLessons/LessonModal';
 import { connect } from 'react-redux';
 import { courseDetail,teachList,messageList,dataRequest } from "../../actions";
 

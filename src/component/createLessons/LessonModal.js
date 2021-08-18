@@ -33,7 +33,7 @@ const LessonModal = props => {
                     </div>
                     <div className="content">
                         <form className="ui form">
-                            <Part1/>
+                            <Part1 name={props.name}/>
                             <Date/>
                             <ErrorMessage/>
                             <Button setVisible={props.setVisible} href={props.href}/>

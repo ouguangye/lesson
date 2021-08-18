@@ -2,20 +2,29 @@ import React,{useState} from 'react';
 import DeleteModal from './DeleteModal';
 import history from '../history';
 import lms from '../../api/lms';
-
-/*const showLessonModal = () => {
-    if(lessonVisible) return (
-        <LessonModal 
-            setVisible={setLessonVisible}
-            href={`/lesson/${id}`}
-            />
-        )
-}*/
+import LessonModal from '../createLessons/LessonModal';
+import { connect } from 'react-redux';
 
 const LessonMenu = props => {
 
     const [visible,setVisible] = useState(false);
+    const [lessonVisible,setLessonVisible] = useState(false);
 
+    const showLessonModal = () =>{
+        if(!lessonVisible)return;
+        return (
+            <LessonModal
+                setVisible={setLessonVisible} 
+                href={`/lesson/${props.id}`}
+                name={props.data.name}
+                startDate={props.data.startDate}
+                endDate={props.data.endDate}
+                hour=""
+                credit={props.data.credit}
+            />
+        )
+    }
+    console.log(props.data.name);
     const deleteModal = () =>{
         if(!visible)return;
         return (
@@ -45,10 +54,16 @@ const LessonMenu = props => {
                 role="option" 
                 className="item" 
                 aria-selected="false"
+                onClick={()=>{setLessonVisible(true)}}
             >
                 <p>编辑课程</p>
             </div>
-            <div role="option" className="item" aria-selected="false">
+            <div 
+                role="option" 
+                className="item" 
+                aria-selected="false"
+                onClick={()=>{setLessonVisible(true)}}
+            >
                 <p>复制课程</p>
             </div>
             <div 
@@ -62,8 +77,15 @@ const LessonMenu = props => {
                 </p>
             </div>
             {deleteModal()}
+            {showLessonModal()}
         </React.Fragment>
     )
 }
 
-export default LessonMenu;
+const mapStateToProps = state =>{
+    return {
+        data:state.detail.data
+    }
+}
+
+export default connect(mapStateToProps)(LessonMenu);
