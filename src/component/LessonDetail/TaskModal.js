@@ -50,6 +50,23 @@ const TaskModal = props => {
                 )
                 break;
             }
+            case 2:{
+                await lms.post(
+                    props.href,{},
+                    {
+                        params:{
+                            sectionId:props.id,
+                            name:name,
+                            startDate:startDate,
+                            endDate:endDate,
+                            introduction:intro,
+                            courseId:props.currentId,
+                            homeworkId:props.homeworkId
+                        }
+                    }
+                )
+                break;
+            }
             default:break;
         }
         

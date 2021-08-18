@@ -61,7 +61,10 @@ const Section = props => {
                         id = {homework.id}
                         name = {homework.name}
                         currentId={props.currentId}
+                        startDate={homework.startDate}
                         endDate = {homework.endDate} 
+                        sectionId = {props.id}
+                        intro={homework.introduction}
                      />
                 )
             }
