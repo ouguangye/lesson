@@ -5,6 +5,8 @@ import Unit from "./Unit";
 import HomeWork from "./HomeWork";
 import SectionModal from "./SectionModal/sectionModal";
 import Menu from "./Menu";
+import { connect } from "react-redux";
+import { teachList } from "../../actions";
 
 const menuConfig = {
     on:{
@@ -19,33 +21,6 @@ const menuConfig = {
     }
 }
 
-
-const renderUnit = units => {
-    if(!units)return;
-    return units.map(
-        unit=>{
-            return (
-                <Unit
-                    name = {unit.name} 
-                />
-                )
-        }
-    )
-}
-
-const renderHomeWork = homeworks => {
-   if(!homeworks)return;
-   return homeworks.map(
-       homework=>{
-           return (
-               <HomeWork
-                   name = {homework.name}
-                   endDate = {homework.endDate} 
-                />
-           )
-       }
-   )
-}
 
 const Section = props => {
     const [show,setShow]=useState(false);
@@ -73,7 +48,36 @@ const Section = props => {
                 }
             }
         )
-        window.location.href=`/lesson/${props.currentId}`
+       props.teachList(props.currentId);
+    }
+
+    const renderHomeWork = homeworks => {
+        if(!homeworks)return;
+        return homeworks.map(
+            homework=>{
+                return (
+                    <HomeWork
+                        name = {homework.name}
+                        endDate = {homework.endDate} 
+                     />
+                )
+            }
+        )
+     }
+
+    const renderUnit = units => {
+        if(!units)return;
+        return units.map(
+            unit=>{
+                return (
+                    <Unit
+                        name = {unit.name} 
+                        id = {unit.id}
+                        currentId={props.currentId}
+                    />
+                    )
+            }
+        )
     }
 
     return(
@@ -150,4 +154,4 @@ const Section = props => {
     )
 }
 
-export default Section;
+export default connect(null,{teachList})(Section);
